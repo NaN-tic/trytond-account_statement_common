@@ -190,6 +190,7 @@ class Statement(metaclass=PoolMeta):
                             statement=statement.rec_name))
 
     @classmethod
+    @ModelView.button
     def cancel(cls, statements):
         pool = Pool()
         Origin = pool.get('account.statement.origin')
