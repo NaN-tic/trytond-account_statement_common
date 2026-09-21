@@ -1,0 +1,21 @@
+account_statement_common
+========================
+
+Shared bank statement management for Tryton, independent of the bank gateway.
+
+Features
+--------
+
+* Statement origin numbering and accounting workflows.
+* Reconciliation suggestions for invoices, payments, move lines and sales.
+* Configurable suggestion weights and amount tolerances.
+* Assistants for linking invoices and creating statement lines.
+* Optional AEB43, analytic accounting and account bank integrations.
+* Shared import methods for bank synchronization connectors.
+
+See doc/index.rst for the connector contract and upgrade instructions.
+
+License
+-------
+
+GNU General Public License, version 3 or later. See COPYRIGHT and LICENSE.
