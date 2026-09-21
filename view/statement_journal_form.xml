@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='validation']" position="after">
+        <label name="statement_provider"/>
+        <field name="statement_provider"/>
+        <label name="one_move_per_origin"/>
+        <field name="one_move_per_origin"/>
+        <label name="max_amount_tolerance"/>
+        <field name="max_amount_tolerance"/>
+        <label name="account_statement_origin_sequence"/>
+        <field name="account_statement_origin_sequence"/>
+        <label name="search_suggestions"/>
+        <field name="search_suggestions"/>
+        <field name="weights" colspan="4"/>
+        <group colspan="4" id="suggestions">
+            <button name="evaluate_weights"/>
+        </group>
+    </xpath>
+</data>
