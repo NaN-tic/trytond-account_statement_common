@@ -140,11 +140,6 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Account Statement Origin</field>
         </record>
         <record model="ir.sequence.type-res.group"
-            id="sequence_type_account_statement_origin_group_admin">
-            <field name="sequence_type" ref="sequence_type_account_statement_origin"/>
-            <field name="group" ref="res.group_admin"/>
-        </record>
-        <record model="ir.sequence.type-res.group"
             id="sequence_type_account_statement_origin_group_account_admin">
             <field name="sequence_type" ref="sequence_type_account_statement_origin"/>
             <field name="group" ref="account.group_account_admin"/>
