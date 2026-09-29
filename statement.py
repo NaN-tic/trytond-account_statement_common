@@ -1831,8 +1831,10 @@ class Origin(Workflow, metaclass=PoolMeta):
         if party_similarity <= 90:
             return
 
-        amount = self.pending_amount
+        pending_amount = self.pending_amount
+        amount = pending_amount
         suggestions = []
+        exact_suggestions = []
         for invoice in Invoice.search([
                 ('company', '=', self.company.id),
                 ('party', '=', party.id),
@@ -1841,11 +1843,24 @@ class Origin(Workflow, metaclass=PoolMeta):
             amount_to_pay = invoice.amount_to_pay
             if invoice.type == 'in':
                 amount_to_pay *= -1
-            if amount > 0 and amount_to_pay <= 0:
+            if pending_amount > 0 and amount_to_pay <= 0:
                 continue
-            if amount < 0 and amount_to_pay >= 0:
+            if pending_amount < 0 and amount_to_pay >= 0:
                 continue
 
+            if amount_to_pay == pending_amount:
+                exact_suggestion = SuggestedLine()
+                exact_suggestion.origin = self
+                exact_suggestion.type = 'balance-invoice'
+                exact_suggestion.date = self.date
+                exact_suggestion.party = party
+                exact_suggestion.related_to = invoice
+                exact_suggestion.account = invoice.account
+                exact_suggestion.amount = amount_to_pay
+                exact_suggestions.append(exact_suggestion)
+
+            if not amount:
+                continue
             if amount > 0:
                 assigned = min(amount, amount_to_pay)
             else:
@@ -1860,8 +1875,6 @@ class Origin(Workflow, metaclass=PoolMeta):
             suggestion.amount = assigned
             suggestions.append(suggestion)
             amount -= assigned
-            if not amount:
-                break
 
         if amount:
             suggestion = SuggestedLine()
@@ -1878,7 +1891,10 @@ class Origin(Workflow, metaclass=PoolMeta):
             suggestions.append(suggestion)
 
         suggestion = SuggestedLine.pack(suggestions)
-        suggestion.save()
+        if suggestion:
+            suggestion.save()
+        if exact_suggestions:
+            SuggestedLine.save(exact_suggestions)
 
     def _suggest_sale(self):
         try:

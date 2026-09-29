@@ -1,6 +1,6 @@
 import unittest
 from decimal import Decimal
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from proteus import Model
 from trytond.tests.test_tryton import drop_db
@@ -65,6 +65,10 @@ class TestSuggestionsScenario(unittest.TestCase):
         customer.name = 'Customer A'
         customer.save()
 
+        customer_b = Party()
+        customer_b.name = 'Customer B'
+        customer_b.save()
+
         ProductUom = Model.get('product.uom')
         uom, = ProductUom.find([('name', '=', 'Unit')])
 
@@ -89,15 +93,35 @@ class TestSuggestionsScenario(unittest.TestCase):
         sale.click('quote')
 
         Invoice = Model.get('account.invoice')
+        today = datetime.today().date()
         invoice = Invoice(type='out')
         invoice.company = company
         invoice.party = customer
+        invoice.invoice_date = today - timedelta(days=3)
         line = invoice.lines.new()
         line.account = accounts['revenue']
         line.quantity = 1
         line.unit_price = Decimal('200.00')
         invoice.save()
         invoice.click('post')
+
+        candidate_invoices = []
+        for invoice_date, invoice_amount in [
+                (today - timedelta(days=2), Decimal('1000.00')),
+                (today - timedelta(days=1), Decimal('450.00')),
+                (today - timedelta(days=1), Decimal('450.00')),
+                ]:
+            candidate_invoice = Invoice(type='out')
+            candidate_invoice.company = company
+            candidate_invoice.party = customer_b
+            candidate_invoice.invoice_date = invoice_date
+            line = candidate_invoice.lines.new()
+            line.account = accounts['revenue']
+            line.quantity = 1
+            line.unit_price = invoice_amount
+            candidate_invoice.save()
+            candidate_invoice.click('post')
+            candidate_invoices.append(candidate_invoice)
 
         Move = Model.get('account.move')
         move = Move()
@@ -124,6 +148,17 @@ class TestSuggestionsScenario(unittest.TestCase):
         journal.account = accounts['cash']
         journal.account_statement_origin_sequence = sequence
         journal.save()
+
+        JournalWeight = Model.get('account.statement.journal.weight')
+        for type_, weight_value in [
+                ('type-combination-all', 0),
+                ('move-line-max-count', 0),
+                ]:
+            weight = JournalWeight()
+            weight.journal = journal
+            weight.type = type_
+            weight.weight = weight_value
+            weight.save()
 
         Statement = Model.get('account.statement')
         statement = Statement()
@@ -173,7 +208,18 @@ class TestSuggestionsScenario(unittest.TestCase):
             'remittance_information': 'Unknown payment',
             }
 
-        self.assertEqual(len(statement.origins), 2)
+        origin4 = Origin()
+        origin4.statement = statement
+        origin4.date = statement.date
+        origin4.amount = Decimal('450.00')
+        origin4.description = 'Origin 4'
+        origin4.information = {
+            'debtor_name': 'Customer B',
+            'remittance_information': 'Incoming transfer',
+            }
+        origin4.save()
+
+        self.assertEqual(len(statement.origins), 3)
 
         statement.click('register')
 
@@ -192,5 +238,17 @@ class TestSuggestionsScenario(unittest.TestCase):
         line, = origin2.lines
         self.assertEqual(line.related_to, invoice)
         self.assertEqual(line.amount, Decimal('200.00'))
+
+        origin4.click('search_suggestions')
+        suggestions = origin4.suggested_lines
+        self.assertTrue(any(
+                x.related_to == candidate_invoices[0]
+                and x.amount == Decimal('450.00')
+                for x in suggestions))
+        for candidate_invoice in candidate_invoices[1:]:
+            self.assertTrue(any(
+                    x.related_to == candidate_invoice
+                    and x.amount == Decimal('450.00')
+                    for x in suggestions))
 
         origin3.click('search_suggestions')
