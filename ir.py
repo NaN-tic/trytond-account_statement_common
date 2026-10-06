@@ -2,7 +2,7 @@
 # this repository contains the full copyright notices and license terms.
 from xml.etree import ElementTree
 
-from sql import Table
+from sql import Null, Table
 
 from trytond.pool import PoolMeta
 from trytond.tools import file_open
@@ -91,7 +91,7 @@ class ModelData(metaclass=PoolMeta):
                             'field', 'help', 'selection', 'wizard_button',
                             'report']))
                     | ((translation.type == 'model')
-                        & (translation.res_id == -1)
+                        & (translation.res_id == Null)
                         & (translation.name != 'ir.action,name'))
                     | ((translation.type == 'view')
                         & (translation.name != 'account.statement.journal')))))
