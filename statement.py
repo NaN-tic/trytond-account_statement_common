@@ -1394,20 +1394,27 @@ class Origin(Workflow, metaclass=PoolMeta):
 
     def get_suggestions_from_payments(self, payments, group_key=(), type_=''):
         """
-        Create one or more suggested registers based on the move_lines.
-        If there are more than one move_line, it will be grouped under
-        a parent.
+        Link complete groups, or suggest individual invoices, lines or payments.
+        Partial groups are packed under a suggestion parent, not a payment group.
         """
         pool = Pool()
         SuggestedLine = pool.get('account.statement.origin.suggested.line')
+        Group = pool.get('account.payment.group')
+        Invoice = pool.get('account.invoice')
 
+        # The same payment can be found by both group and date searches.
+        payments = list(dict.fromkeys(payments))
         if not payments:
             return []
 
         to_save = []
         group = group_key[0] if group_key else None
         date = group_key[1] if group_key else None
-        if group:
+        if (isinstance(group, Group) and len(payments) > 1
+                and set(payments) == set(group.payments)
+                and all(payment.state != 'failed'
+                    and not (payment.line and payment.line.reconciliation)
+                    for payment in payments)):
             line = SuggestedLine()
             line.type = type_
             line.origin = self
@@ -1415,14 +1422,17 @@ class Origin(Workflow, metaclass=PoolMeta):
             line.related_to = group
             line.amount = sum(payment.amount if payment.kind == 'receivable'
                 else -payment.amount for payment in payments)
-            line.account = self.statement.journal.account
+            line.account = (group.journal.clearing_account
+                or self.statement.journal.account)
             to_save.append(line)
         else:
             for payment in payments:
                 line = SuggestedLine()
-                line.type = type_
+                line.type = 'payment' if len(payments) == 1 else type_
                 line.origin = self
-                if payment.line:
+                if payment.journal.clearing_account:
+                    line.account = payment.journal.clearing_account
+                elif payment.line:
                     line.account = payment.line.account
                 else:
                     if payment.kind == 'payable':
@@ -1432,6 +1442,22 @@ class Origin(Workflow, metaclass=PoolMeta):
                 line.party = payment.party
                 line.date = payment.date
                 line.related_to = payment
+                move_line = payment.line
+                if (move_line and not move_line.reconciliation
+                        and move_line.state == 'valid'
+                        and move_line.account.reconcile):
+                    invoice = move_line.move_origin
+                    if (isinstance(invoice, Invoice)
+                            and invoice.state == 'posted'
+                            and invoice.account == move_line.account
+                            and invoice.currency == (
+                                self.second_currency or self.currency)):
+                        line.related_to = invoice
+                        line.account = move_line.account
+                    elif move_line.currency == self.currency:
+                        line.related_to = move_line
+                        line.account = move_line.account
+                        line.party = move_line.party
                 line.amount = (payment.amount if payment.kind == 'receivable'
                     else -payment.amount)
                 to_save.append(line)
@@ -1503,16 +1529,9 @@ class Origin(Workflow, metaclass=PoolMeta):
                             and payment.line and payment.line.reconciliation)):
                     break
             else:
-                suggestion = SuggestedLine()
-                suggestion.origin = self
-                suggestion.type = 'payment-group'
-                suggestion.related_to = group
-                suggestion.date = group.planned_date
-                suggestion.amount = group.total_amount
-                suggestion.account = group.journal.clearing_account
-                # TODO: Is this second_currency necessary?
-                suggestion.second_currency = self.second_currency
-                to_save.append(suggestion)
+                to_save.extend(self.get_suggestions_from_payments(
+                    group.payments, group_key=(group, group.planned_date),
+                    type_='payment-group'))
 
         SuggestedLine.save(to_save)
 

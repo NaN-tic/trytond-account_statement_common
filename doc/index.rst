@@ -57,6 +57,14 @@ does not handle origins with a second currency or payments covering multiple
 invoices. Its base weight is configured with ``type-invoice``. Exact normalized
 references also receive the full number-match weight for invoices and sales.
 
+Payment suggestions link a payment group only when they contain every payment
+in that group, with more than one payment and no failed payments or reconciled
+source lines. Single payments and partial groups prefer the posted invoice
+associated with an eligible unreconciled source line, then the source line,
+and otherwise the individual payment. Partial groups are presented as a parent
+suggestion with individual children, not as a link to the full payment group.
+Repeated payments from overlapping group/date searches are counted only once.
+
 Connectors can extend ``account.statement.origin.on_change_with_synchronized``
 to protect imported origins from editing. The default is false; Enable Banking
 preserves its existing rule based on the journal's session.
