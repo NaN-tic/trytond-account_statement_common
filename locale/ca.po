@@ -988,3 +988,67 @@ msgstr "Aplica"
 msgctxt "wizard_button:statement.link.invoice,start,end:"
 msgid "Cancel"
 msgstr "Cancel·la"
+
+msgctxt "field:account.statement.journal,statement_provider:"
+msgid "Synchronization Provider"
+msgstr "Proveïdor de sincronització"
+
+msgctxt "selection:account.statement.journal,statement_provider:"
+msgid "Manual Import"
+msgstr "Importació manual"
+
+msgctxt "field:account.statement.journal,apply_suggestions:"
+msgid "Apply Suggestions Automatically"
+msgstr "Aplica els suggeriments automàticament"
+
+msgctxt "help:account.statement.journal,apply_suggestions:"
+msgid "Apply an unambiguous exact-reference suggestion after searching. Otherwise, review and apply suggestions manually."
+msgstr "Aplica un suggeriment inequívoc amb coincidència exacta de referència després de la cerca. En cas contrari, revisa i aplica els suggeriments manualment."
+
+msgctxt "field:account.statement.origin.suggested.line,match_quality:"
+msgid "Match Quality"
+msgstr "Qualitat de la coincidència"
+
+msgctxt "field:account.statement.origin.suggested.line,match_basis:"
+msgid "Matching Evidence"
+msgstr "Motiu de la coincidència"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "General Combination Max Count"
+msgstr "Nombre màxim d'apunts per combinació general"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Additional Line Penalty"
+msgstr "Penalització per línia addicional"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Additional Party Penalty"
+msgstr "Penalització per tercer addicional"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Automatic Application Minimum Margin"
+msgstr "Marge mínim d'aplicació automàtica"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Invoice Reference"
+msgstr "Tipus referència de factura"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Invoice Reference"
+msgstr "Referència de factura"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Amount Only"
+msgstr "Només import"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Historical Pattern"
+msgstr "Patró històric"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Counterparty"
+msgstr "Tercer"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Exact Reference"
+msgstr "Referència exacta"

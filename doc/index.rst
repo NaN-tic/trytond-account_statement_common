@@ -43,6 +43,20 @@ Normalized transactions are dictionaries with these keys:
   engine consumes these canonical keys. Legacy ``eb_*`` XML identifiers are kept
   for the metadata definitions to preserve existing records.
 
+Suggestion matching uses ``information['remittance_information']`` first and
+falls back to the origin's ``description`` when that value is missing, null or
+contains only spaces. Historical matching and remittance searches use the same
+fallback, including for AEB43 imports. Structured metadata remains available
+for matching counterparties, references and dates.
+
+Invoice reference suggestions match posted customer invoice numbers or supplier
+invoice references, ignoring case, spaces, slashes, dots and hyphens. References
+must not be part of a longer number. The company, currency and signed outstanding
+amount must match the origin; no prior party-name match is required. This search
+does not handle origins with a second currency or payments covering multiple
+invoices. Its base weight is configured with ``type-invoice``. Exact normalized
+references also receive the full number-match weight for invoices and sales.
+
 Connectors can extend ``account.statement.origin.on_change_with_synchronized``
 to protect imported origins from editing. The default is false; Enable Banking
 preserves its existing rule based on the journal's session.
@@ -54,6 +68,50 @@ The ``[account_statement_common]`` configuration section accepts ``queue_name``
 and ``party_similarity_threshold``. For compatibility, absent settings fall back
 to the previous ``[enable_banking]`` values, then to their existing defaults.
 The Enable Banking download queue continues to use ``[enable_banking] queue_name``.
+
+Candidate ranking and application
+---------------------------------
+
+Suggestions are ordered by evidence first: exact reference, matching counterparty
+(at least 50% similarity), historical pattern, then amount-only matches. The
+``Matching Evidence`` column shows this classification. Weights rank candidates
+within each evidence level, so a high balance-allocation weight cannot displace
+an exact-reference candidate. Grouped suggestions use their weakest child's
+evidence level.
+
+Combinations only use amounts with the origin's sign and group entries by party
+(or by account when there is no party). They do not mix unrelated counterparties
+or offset debits against credits to obtain the target amount. Origins with a
+second currency are excluded from this combination search. The defaults are:
+
+* ``move-line-max-count``: 5 lines per combination.
+* ``combination-all-max-count``: 3 lines for general combinations.
+* ``combination-line-penalty``: 5 points for each additional line.
+* ``combination-party-penalty``: 20 points for each additional party in grouped
+  proposals, including those produced by other candidate sources.
+* ``date-match``: 20; ``party-match``: 40; ``number-match``: 80.
+* ``type-combination-all``: 40.
+
+Configured journal weights override these defaults. Candidate enumeration keeps
+the existing computation budget and a cap of 100 matches per search pass, but
+does not stop because another candidate already has a high weight. Historical
+patterns use posted origins in the same company and journal, with the same sign
+and second currency, within ``origin-delta-days`` of the transaction date and
+not after it. Only patterns without linked documents are copied as account
+allocations; their split amounts remain for manual completion.
+
+``Apply Suggestions Automatically`` is disabled by default. Searching still
+creates the candidate list. When enabled, the separate application step requires
+an exact-reference candidate, the ``origin-similarity`` minimum weight, and a
+weight advantage greater than ``auto-use-margin`` (default 20) over the next
+exact-reference alternative. The proposal and its children must total the pending
+amount, without a second currency. Otherwise, apply a suggestion manually with
+``Use``. Ambiguity is checked before trimming the candidate list.
+
+Upgrade the module before using these changes, to install the journal option,
+stored evidence level and updated views. Existing suggestions retain their old
+scores until recalculated; regenerate suggestions on pending origins to obtain
+the new candidate selection and ranking.
 
 Upgrading an existing Enable Banking installation
 ================================================

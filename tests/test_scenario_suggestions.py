@@ -124,6 +124,7 @@ class TestSuggestionsScenario(unittest.TestCase):
         journal.account = accounts['cash']
         journal.account_statement_origin_sequence = sequence
         journal.save()
+        self.assertFalse(journal.apply_suggestions)
 
         Statement = Model.get('account.statement')
         statement = Statement()
@@ -146,7 +147,7 @@ class TestSuggestionsScenario(unittest.TestCase):
         origin1.description = 'Origin 1'
         origin1.information = {
             'debtor_name': 'Customer A',
-            'remittance_information': 'Payment for sale 1',
+            'remittance_information': f'Payment for sale {sale.number}',
             }
         self.assertNotEqual(origin1.information, None)
         origin1.save()
@@ -159,7 +160,7 @@ class TestSuggestionsScenario(unittest.TestCase):
         origin2.description = 'Origin 2'
         origin2.information = {
             'debtor_name': 'Customer A',
-            'remittance_information': 'Payment for invoice 1',
+            'remittance_information': f'Payment for invoice {invoice.number}',
             }
         origin2.save()
 
@@ -178,19 +179,38 @@ class TestSuggestionsScenario(unittest.TestCase):
         statement.click('register')
 
         origin1.click('search_suggestions')
-        suggested_line = origin1.suggested_lines[0]
+        suggested_line = origin1.suggested_lines_tree[0]
         self.assertEqual(suggested_line.type, 'sale')
+        self.assertEqual(suggested_line.related_to, sale)
+        self.assertEqual(suggested_line.match_basis, 'reference')
+        self.assertEqual(len(origin1.lines), 0)
+
+        # Searching proposes candidates; the user can explicitly apply one.
+        suggested_line.click('use')
+        origin1.reload()
         self.assertEqual(len(origin1.lines), 1)
         line, = origin1.lines
         self.assertEqual(line.related_to, sale)
         self.assertEqual(line.amount, Decimal('100.00'))
+        self.assertEqual(line.suggested_line, suggested_line)
 
         origin2.click('search_suggestions')
-        suggested_line = origin2.suggested_lines[0]
-        self.assertEqual(suggested_line.type, 'balance-invoice')
+        suggested_line = origin2.suggested_lines_tree[0]
+        self.assertEqual(suggested_line.related_to, invoice)
+        self.assertEqual(suggested_line.match_basis, 'reference')
+        self.assertEqual(len(origin2.lines), 0)
+
+        # Automatic application is an explicit journal choice and requires
+        # an unambiguous reference, rather than just a matching party.
+        journal.apply_suggestions = True
+        journal.save()
+        origin2.click('search_suggestions')
         self.assertEqual(len(origin2.lines), 1)
         line, = origin2.lines
         self.assertEqual(line.related_to, invoice)
         self.assertEqual(line.amount, Decimal('200.00'))
+        self.assertEqual(line.suggested_line.match_basis, 'reference')
 
         origin3.click('search_suggestions')
+        self.assertTrue(origin3.suggested_lines_tree)
+        self.assertEqual(len(origin3.lines), 0)

@@ -13,6 +13,8 @@ this repository contains the full copyright notices and license terms. -->
         <field name="account_statement_origin_sequence"/>
         <label name="search_suggestions"/>
         <field name="search_suggestions"/>
+        <label name="apply_suggestions"/>
+        <field name="apply_suggestions"/>
         <field name="weights" colspan="4"/>
         <group colspan="4" id="suggestions">
             <button name="evaluate_weights"/>
