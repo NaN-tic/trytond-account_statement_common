@@ -18,27 +18,32 @@ QUEUE_NAME = config.get('account_statement_common', 'queue_name',
 DEFAULT_WEIGHTS = {
     'based-on-match': 10,
     'combination-escape-threshold': 130,
-    'date-match': 60,
+    'date-match': 20,
     'escape-threshold': 150,
-    'move-line-max-count': 20,
-    'number-match': 20,
+    'move-line-max-count': 5,
+    'combination-all-max-count': 3,
+    'combination-line-penalty': 5,
+    'combination-party-penalty': 20,
+    'auto-use-margin': 20,
+    'number-match': 80,
     'origin-delta-days': 365,
     'origin-similarity': 80,
     'origin-similarity-threshold': 50,
-    'party-match': 20,
+    'party-match': 40,
     'party-uniformity': 10,
     'max-suggestion-count': 10,
     # 100,000 combinations take between 0.02 and 0.1 seconds on a laptop.
     # This may be computed up to 20 times per origin.
     'target-combinations': 100_000,
     'type-combination-party': 105,
-    'type-combination-all': 100,
+    'type-combination-all': 40,
     'type-payment-group': 130,
     'type-payment': 120,
     'type-origin': 100,
     'type-balance': 90,
     'type-balance-invoice': 90,
     'type-sale': 102,
+    'type-invoice': 102,
     }
 
 
@@ -55,6 +60,10 @@ class JournalWeight(ModelSQL, ModelView):
             ('escape-threshold', 'Escape Threshold'),
             ('max-suggestion-count', 'Max Suggestion Count'),
             ('move-line-max-count', 'Move Line Max Count'),
+            ('combination-all-max-count', 'General Combination Max Count'),
+            ('combination-line-penalty', 'Additional Line Penalty'),
+            ('combination-party-penalty', 'Additional Party Penalty'),
+            ('auto-use-margin', 'Automatic Application Minimum Margin'),
             ('number-match', 'Number Match'),
             ('origin-delta-days', 'Origin Delta Days'),
             ('origin-similarity', 'Origin Similarity'),
@@ -70,6 +79,7 @@ class JournalWeight(ModelSQL, ModelView):
             ('type-balance', 'Type Balance'),
             ('type-balance-invoice', 'Type Balance Invoice'),
             ('type-sale', 'Type Sale'),
+            ('type-invoice', 'Type Invoice Reference'),
             ], 'Type', required=True)
     weight = fields.Integer('Weight', required=True, domain=[
             ('weight', '>=', 0),
@@ -144,6 +154,9 @@ class Journal(metaclass=PoolMeta):
     _get_weight_cache = Cache('account_statement_journal.get_weight')
     search_suggestions = fields.Boolean('Search Suggestions',
         help="Check if want to search automatically suggestions")
+    apply_suggestions = fields.Boolean('Apply Suggestions Automatically',
+        help="Apply an unambiguous exact-reference suggestion after searching. "
+        "Otherwise, review and apply suggestions manually.")
 
     @classmethod
     def __setup__(cls):
@@ -182,6 +195,10 @@ class Journal(metaclass=PoolMeta):
     @staticmethod
     def default_search_suggestions():
         return True
+
+    @staticmethod
+    def default_apply_suggestions():
+        return False
 
     def set_number(self, origins):
         'Fill the number field with the statement origin sequence.'
@@ -316,10 +333,13 @@ class Journal(metaclass=PoolMeta):
             for origin in origins:
                 target = sorted([tuplify(x) for x in origin.lines])
                 suggestions = []
-                for suggestion in origin.suggested_lines:
+                for suggestion in origin.suggested_lines_tree:
+                    for child in suggestion.childs:
+                        child.update_weight()
                     suggestion.update_weight()
                     suggestions.append(suggestion)
-                suggestions = sorted(suggestions, key=lambda x: x.weight,
+                suggestions = sorted(suggestions,
+                    key=lambda x: (x.match_quality, x.weight),
                     reverse=True)
                 position = -1
                 for suggestion in suggestions:

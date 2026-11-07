@@ -989,3 +989,67 @@ msgstr "Aplicar"
 msgctxt "wizard_button:statement.link.invoice,start,end:"
 msgid "Cancel"
 msgstr "Cancelar"
+
+msgctxt "field:account.statement.journal,statement_provider:"
+msgid "Synchronization Provider"
+msgstr "Proveedor de sincronización"
+
+msgctxt "selection:account.statement.journal,statement_provider:"
+msgid "Manual Import"
+msgstr "Importación manual"
+
+msgctxt "field:account.statement.journal,apply_suggestions:"
+msgid "Apply Suggestions Automatically"
+msgstr "Aplicar las sugerencias automáticamente"
+
+msgctxt "help:account.statement.journal,apply_suggestions:"
+msgid "Apply an unambiguous exact-reference suggestion after searching. Otherwise, review and apply suggestions manually."
+msgstr "Aplicar una sugerencia inequívoca con coincidencia exacta de referencia después de la búsqueda. En caso contrario, revisar y aplicar las sugerencias manualmente."
+
+msgctxt "field:account.statement.origin.suggested.line,match_quality:"
+msgid "Match Quality"
+msgstr "Calidad de la coincidencia"
+
+msgctxt "field:account.statement.origin.suggested.line,match_basis:"
+msgid "Matching Evidence"
+msgstr "Motivo de la coincidencia"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "General Combination Max Count"
+msgstr "Número máximo de apuntes por combinación general"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Additional Line Penalty"
+msgstr "Penalización por línea adicional"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Additional Party Penalty"
+msgstr "Penalización por tercero adicional"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Automatic Application Minimum Margin"
+msgstr "Margen mínimo de aplicación automática"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Invoice Reference"
+msgstr "Tipo referencia de factura"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Invoice Reference"
+msgstr "Referencia de factura"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Amount Only"
+msgstr "Solo importe"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Historical Pattern"
+msgstr "Patrón histórico"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Counterparty"
+msgstr "Tercero"
+
+msgctxt "selection:account.statement.origin.suggested.line,match_basis:"
+msgid "Exact Reference"
+msgstr "Referencia exacta"
