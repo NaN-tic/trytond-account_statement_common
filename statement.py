@@ -222,10 +222,10 @@ class Line(metaclass=PoolMeta):
 
     maturity_date = fields.Date("Maturity Date",
         states={
-            'readonly': ((Eval('origin_state') != 'registered')
-                | Bool(Eval('related_to'))),
+            'readonly': Eval('origin_state') != 'registered',
+            'editable': ~Bool(Eval('related_to')),
             },
-        depends=['related_to'],
+        depends=['origin_state', 'related_to'],
         help="Set a date to make the line payable or receivable.")
     suggested_line = fields.Many2One('account.statement.origin.suggested.line',
         'Suggested Line',
