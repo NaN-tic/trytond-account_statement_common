@@ -1,0 +1,1050 @@
+#
+msgid ""
+msgstr ""
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:account.invoice,paid_directly:"
+msgid "Has Payed directly"
+msgstr "Közvetlenül kifizetve"
+
+msgctxt "field:account.move,allow_button_draft:"
+msgid "Allow Button Draft Move"
+msgstr "Piszkozatra állítás gomb engedélyezése"
+
+msgctxt "field:account.move,allow_draft:"
+msgid "Allow Draft Move"
+msgstr "Könyvelési tétel piszkozatra állításának engedélyezése"
+
+msgctxt "field:account.move.line,debit_credit_balance:"
+msgid "Debit-Credit Balance"
+msgstr "Tartozik-követel egyenleg"
+
+msgctxt "field:account.move.line,payment_date:"
+msgid "Payment Date"
+msgstr "Fizetés dátuma"
+
+msgctxt "field:account.move.line,payment_group:"
+msgid "Payment Group"
+msgstr "Fizetési csoport"
+
+msgctxt "field:account.statement,end_date:"
+msgid "End Date"
+msgstr "Befejező dátum"
+
+msgctxt "field:account.statement,start_date:"
+msgid "Start Date"
+msgstr "Kezdődátum"
+
+msgctxt "field:account.statement.journal,account_statement_origin_sequence:"
+msgid "Account Statement Origin Sequence"
+msgstr "Kivonatforrás számsorozata"
+
+msgctxt "field:account.statement.journal,max_amount_tolerance:"
+msgid "Max Amount tolerance"
+msgstr "Maximális összegtűrés"
+
+msgctxt "field:account.statement.journal,one_move_per_origin:"
+msgid "One Move per Origin"
+msgstr "Forrásonként egy könyvelési tétel"
+
+msgctxt "field:account.statement.journal,search_suggestions:"
+msgid "Search Suggestions"
+msgstr "Javaslatok keresése"
+
+msgctxt "field:account.statement.journal,weights:"
+msgid "Weights"
+msgstr "Súlyok"
+
+msgctxt "field:account.statement.journal.weight,journal:"
+msgid "Journal"
+msgstr "Napló"
+
+msgctxt "field:account.statement.journal.weight,type:"
+msgid "Type"
+msgstr "Típus"
+
+msgctxt "field:account.statement.journal.weight,weight:"
+msgid "Weight"
+msgstr "Súly"
+
+msgctxt "field:account.statement.line,account_required:"
+msgid "Account Required"
+msgstr "Főkönyvi számla kötelező"
+
+msgctxt "field:account.statement.line,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "Analitikus számlák"
+
+msgctxt "field:account.statement.line,analytic_accounts_size:"
+msgid "Analytic Accounts Size"
+msgstr "Analitikus számlák száma"
+
+msgctxt "field:account.statement.line,maturity_date:"
+msgid "Maturity Date"
+msgstr "Esedékesség"
+
+msgctxt "field:account.statement.line,origin_state:"
+msgid "Origin State"
+msgstr "Forrás állapota"
+
+msgctxt "field:account.statement.line,show_paid_invoices:"
+msgid "Show Paid Invoices"
+msgstr "Kifizetett számlák megjelenítése"
+
+msgctxt "field:account.statement.line,suggested_line:"
+msgid "Suggested Line"
+msgstr "Javasolt tétel"
+
+msgctxt "field:account.statement.origin,balance:"
+msgid "Balance"
+msgstr "Egyenleg"
+
+msgctxt "field:account.statement.origin,entry_reference:"
+msgid "Entry Reference"
+msgstr "Bejegyzés hivatkozása"
+
+msgctxt "field:account.statement.origin,journal:"
+msgid "Journal"
+msgstr "Napló"
+
+msgctxt "field:account.statement.origin,remittance_information:"
+msgid "Remittance Information"
+msgstr "Átutalási információ"
+
+msgctxt "field:account.statement.origin,state:"
+msgid "State"
+msgstr "Állapot"
+
+msgctxt "field:account.statement.origin,suggested_lines:"
+msgid "Suggested Lines"
+msgstr "Javasolt tételek"
+
+msgctxt "field:account.statement.origin,suggested_lines_tree:"
+msgid "Suggested Lines"
+msgstr "Javasolt tételek"
+
+msgctxt "field:account.statement.origin,synchronized:"
+msgid "Synchronized"
+msgstr "Szinkronizálva"
+
+msgctxt "field:account.statement.origin.create_line.start,account:"
+msgid "Account"
+msgstr "Számla"
+
+msgctxt "field:account.statement.origin.create_line.start,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "Analitikus számlák"
+
+msgctxt "field:account.statement.origin.create_line.start,company:"
+msgid "Company"
+msgstr "Cég"
+
+msgctxt "field:account.statement.origin.create_line.start,description:"
+msgid "Description"
+msgstr "Leírás"
+
+msgctxt "field:account.statement.origin.create_line.start,party:"
+msgid "Party"
+msgstr "Ügyfél"
+
+msgctxt "field:account.statement.origin.create_line.start,party_required:"
+msgid "Party Required"
+msgstr "Ügyfél megadása kötelező"
+
+msgctxt "field:account.statement.origin.create_line.start,post_origin:"
+msgid "Post Origins"
+msgstr "Források könyvelése"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,amount:"
+msgid "Amount"
+msgstr "Összeg"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,company:"
+msgid "Company"
+msgstr "Cég"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,currency:"
+msgid "Currency"
+msgstr "Pénznem"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,invoices:"
+msgid "Invoices"
+msgstr "Számlák"
+
+msgctxt ""
+"field:account.statement.origin.multiple.invoices.start,pending_amount:"
+msgid "Pending Amount"
+msgstr "Fennmaradó összeg"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,amount:"
+msgid "Amount"
+msgstr "Összeg"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,company:"
+msgid "Company"
+msgstr "Cég"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,currency:"
+msgid "Currency"
+msgstr "Pénznem"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,move_lines:"
+msgid "Move Lines"
+msgstr "Könyvelési tételek"
+
+msgctxt ""
+"field:account.statement.origin.multiple.move_lines.start,pending_amount:"
+msgid "Pending Amount"
+msgstr "Fennmaradó összeg"
+
+msgctxt ""
+"field:account.statement.origin.multiple.move_lines.start,second_currency:"
+msgid "Second Currency"
+msgstr "Deviza pénznem"
+
+msgctxt "field:account.statement.origin.suggested.line,account:"
+msgid "Account"
+msgstr "Számla"
+
+msgctxt "field:account.statement.origin.suggested.line,amount:"
+msgid "Amount"
+msgstr "Összeg"
+
+msgctxt ""
+"field:account.statement.origin.suggested.line,amount_second_currency:"
+msgid "Amount Second Currency"
+msgstr "Összeg devizában"
+
+msgctxt "field:account.statement.origin.suggested.line,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "Analitikus számlák"
+
+msgctxt ""
+"field:account.statement.origin.suggested.line,analytic_accounts_size:"
+msgid "Analytic Accounts Size"
+msgstr "Analitikus számlák száma"
+
+msgctxt "field:account.statement.origin.suggested.line,based_on:"
+msgid "Based On"
+msgstr "Alapja"
+
+msgctxt "field:account.statement.origin.suggested.line,childs:"
+msgid "Children"
+msgstr "Alárendelt rekordok"
+
+msgctxt "field:account.statement.origin.suggested.line,company:"
+msgid "Company"
+msgstr "Cég"
+
+msgctxt "field:account.statement.origin.suggested.line,company_currency:"
+msgid "Company Currency"
+msgstr "Vállalat pénzneme"
+
+msgctxt "field:account.statement.origin.suggested.line,currency:"
+msgid "Currency"
+msgstr "Pénznem"
+
+msgctxt "field:account.statement.origin.suggested.line,date:"
+msgid "Date"
+msgstr "Dátum"
+
+msgctxt "field:account.statement.origin.suggested.line,origin:"
+msgid "Origin"
+msgstr "Eredet"
+
+msgctxt "field:account.statement.origin.suggested.line,parent:"
+msgid "Parent"
+msgstr "Fölérendelt"
+
+msgctxt "field:account.statement.origin.suggested.line,party:"
+msgid "Party"
+msgstr "Ügyfél"
+
+msgctxt "field:account.statement.origin.suggested.line,related_to:"
+msgid "Related To"
+msgstr "Kapcsolódó rekord"
+
+msgctxt "field:account.statement.origin.suggested.line,second_currency:"
+msgid "Second Currency"
+msgstr "Deviza pénznem"
+
+msgctxt "field:account.statement.origin.suggested.line,state:"
+msgid "State"
+msgstr "Állapot"
+
+msgctxt "field:account.statement.origin.suggested.line,type:"
+msgid "Type"
+msgstr "Típus"
+
+msgctxt "field:account.statement.origin.suggested.line,weight:"
+msgid "Weight"
+msgstr "Súly"
+
+msgctxt "field:statement.link.invoice.start,company:"
+msgid "Company"
+msgstr "Cég"
+
+msgctxt "field:statement.link.invoice.start,currency:"
+msgid "Currency"
+msgstr "Pénznem"
+
+msgctxt "field:statement.link.invoice.start,diff_amount:"
+msgid "Difference Amount"
+msgstr "Különbözet összege"
+
+msgctxt "field:statement.link.invoice.start,invoice:"
+msgid "Invoice"
+msgstr "Számla"
+
+msgctxt "field:statement.link.invoice.start,invoice_amount:"
+msgid "Invoice Amount"
+msgstr "Számla összege"
+
+msgctxt "field:statement.link.invoice.start,origins_amount:"
+msgid "Origins Amount"
+msgstr "Források összege"
+
+msgctxt "field:statement.link.invoice.start,post_origin:"
+msgid "Post Origins"
+msgstr "Források könyvelése"
+
+msgctxt "help:account.invoice,paid_directly:"
+msgid "The invoice has payed with the 'PAY' button"
+msgstr "A számla a „FIZETÉS” gombbal lett kifizetve."
+
+msgctxt "help:account.statement.journal,max_amount_tolerance:"
+msgid ""
+"In some cases, it is possible to have amounts that vary in X. This field if "
+"set is the maximum of the allowed tolerance. That is, if value is set when "
+"searching for similarities it will look for equal amounts or with +X, value "
+"that has been set here."
+msgstr ""
+"Egyes esetekben az összegek X értékkel eltérhetnek. Ez a mező az "
+"engedélyezett eltérés maximuma. Ha meg van adva, a hasonlóságkeresés az "
+"egyező összegeket, illetve az itt beállított X értékkel nagyobb összegeket "
+"keresi."
+
+msgctxt "help:account.statement.journal,one_move_per_origin:"
+msgid ""
+"Check if want to create only one move per origin when post it even it has "
+"more than one line. Else it create one move for eaach line."
+msgstr ""
+"Jelölje be, ha könyveléskor forrásonként csak egy könyvelési tételt szeretne"
+" létrehozni, akkor is, ha több sor van. Egyébként soronként külön tétel jön "
+"létre."
+
+msgctxt "help:account.statement.journal,search_suggestions:"
+msgid "Check if want to search automatically suggestions"
+msgstr "Jelölje be a javaslatok automatikus kereséséhez"
+
+msgctxt "help:account.statement.line,maturity_date:"
+msgid "Set a date to make the line payable or receivable."
+msgstr ""
+"Adjon meg dátumot, amelytől a sor kötelezettségként vagy követelésként "
+"esedékes."
+
+msgctxt "model:account.statement.journal.weight,string:"
+msgid "Account Statement Journal Weight"
+msgstr "Kivonatnapló súlya"
+
+msgctxt "model:account.statement.origin.create_line.start,string:"
+msgid "Account Statement Origin Create Line Start"
+msgstr "Kivonatforrás-tétel létrehozásának indítása"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_balance_after_transaction"
+msgid "Balance After Transaction"
+msgstr "Tranzakció utáni egyenleg"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_code"
+msgid "Bank Transaction Code"
+msgstr "Banki tranzakciókód"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_description"
+msgid "Bank Transaction Code Description"
+msgstr "Banki tranzakciókód leírása"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_sub_code"
+msgid "Bank Transaction Code Sub Code"
+msgstr "Banki tranzakciókód alkódja"
+
+msgctxt "model:account.statement.origin.information,string:eb_booking_date"
+msgid "Booking Date"
+msgstr "Könyvelési dátum"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_credit_debit_indicator"
+msgid "Credit Debit Indicator"
+msgstr "Jóváírás/terhelés jelzője"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_additional_identification"
+msgid "Creditor Account Additional Identification"
+msgstr "Kedvezményezett számlájának kiegészítő azonosítója"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_iban"
+msgid "Creditor Account IBAN"
+msgstr "Kedvezményezett számlájának IBAN-száma"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_other"
+msgid "Creditor Account Other"
+msgstr "Kedvezményezett számlájának egyéb azonosítója"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_agent_bic_fi"
+msgid "Creditor Agent BIC FI"
+msgstr "Kedvezményezett bankjának BIC FI kódja"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_agent_name"
+msgid "Creditor Agent Name"
+msgstr "Kedvezményezett bankjának neve"
+
+msgctxt "model:account.statement.origin.information,string:eb_creditor_name"
+msgid "Creditor Name"
+msgstr "Kedvezményezett neve"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_postal_address"
+msgid "Creditor Postal Address"
+msgstr "Kedvezményezett postacíme"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_additional_identification"
+msgid "Debtor Account Additional Identification"
+msgstr "Fizető fél számlájának kiegészítő azonosítója"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_iban"
+msgid "Debtor Account IBAN"
+msgstr "Fizető fél számlájának IBAN-száma"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_other"
+msgid "Debtor Account Other"
+msgstr "Fizető fél számlájának egyéb azonosítója"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_agent_bic_fi"
+msgid "Debtor Agent BIC FI"
+msgstr "Fizető fél bankjának BIC FI kódja"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_agent_name"
+msgid "Debtor Agent Name"
+msgstr "Fizető fél bankjának neve"
+
+msgctxt "model:account.statement.origin.information,string:eb_debtor_name"
+msgid "Debtor Name"
+msgstr "Fizető fél neve"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_postal_address"
+msgid "Debtor Postal Address"
+msgstr "Fizető fél postacíme"
+
+msgctxt "model:account.statement.origin.information,string:eb_exchange_rate"
+msgid "Exchange Rate"
+msgstr "Árfolyam"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_contract_identification"
+msgid "Exchange Rate Contract Identification"
+msgstr "Árfolyamszerződés azonosítója"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_exchange_rate"
+msgid "Exchange Rate"
+msgstr "Árfolyam"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_instructed_amount"
+msgid "Exchange Rate Instructed Amount"
+msgstr "Árfolyam szerinti megbízási összeg"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_rate_type"
+msgid "Exchange Rate Type"
+msgstr "Árfolyam típusa"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_unit_currency"
+msgid "Exchange Rate Unit Currency"
+msgstr "Árfolyam egységdevizája"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_merchant_category_code"
+msgid "Merchant Category Code"
+msgstr "Kereskedő kategóriakódja"
+
+msgctxt "model:account.statement.origin.information,string:eb_note"
+msgid "Note"
+msgstr "Jegyzetek"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_reference_number"
+msgid "Reference Number"
+msgstr "Hivatkozási szám"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_reference_number_schema"
+msgid "Reference Number Schema"
+msgstr "Hivatkozási szám sémája"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_remittance_information"
+msgid "Remittance Information"
+msgstr "Átutalási információ"
+
+msgctxt "model:account.statement.origin.information,string:eb_status"
+msgid "Status"
+msgstr "Állapot"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_transaction_amount"
+msgid "Transaction Amount"
+msgstr "Tranzakció összege"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_transaction_date"
+msgid "Transaction Date"
+msgstr "Tranzakció dátuma"
+
+msgctxt "model:account.statement.origin.information,string:eb_value_date"
+msgid "Value Date"
+msgstr "Értéknap"
+
+msgctxt "model:account.statement.origin.multiple.invoices.start,string:"
+msgid "Account Statement Origin Multiple Invoices Start"
+msgstr "Kivonatforrás több számlája – kezdés"
+
+msgctxt "model:account.statement.origin.multiple.move_lines.start,string:"
+msgid "Account Statement Origin Multiple Move Lines Start"
+msgstr "Kivonatforrás több könyvelési tétele – kezdés"
+
+msgctxt "model:account.statement.origin.suggested.line,string:"
+msgid "Account Statement Origin Suggested Line"
+msgstr "Kivonatforrás javasolt sora"
+
+msgctxt ""
+"model:ir.action,name:act_account_statement_origin_suggested_line_view"
+msgid "Account Statement Origin Suggested Line"
+msgstr "Kivonatforrás javasolt sora"
+
+msgctxt "model:ir.action,name:act_origin_move_lines_form"
+msgid "Move Lines"
+msgstr "Könyvelési tételek"
+
+msgctxt "model:ir.action,name:act_origin_moves_form"
+msgid "Moves"
+msgstr "Mozgások"
+
+msgctxt "model:ir.action,name:act_statement_origin_form"
+msgid "Statement Origins"
+msgstr "Kivonatforrások"
+
+msgctxt "model:ir.action,name:create_line"
+msgid "Create Lines"
+msgstr "Sorok létrehozása"
+
+msgctxt "model:ir.action,name:wizard_link_invoice"
+msgid "Link Invoice"
+msgstr "Számla összekapcsolása"
+
+msgctxt "model:ir.action,name:wizard_multiple_invoices"
+msgid "Add Multiple Invoices"
+msgstr "Több számla hozzáadása"
+
+msgctxt "model:ir.action,name:wizard_multiple_move_lines"
+msgid "Add Multiple Move Lines"
+msgstr "Több könyvelési tétel hozzáadása"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_form_domain_registered"
+msgid "Registered"
+msgstr "Rögzítve"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_all"
+msgid "All"
+msgstr "összes"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_posted"
+msgid "Posted"
+msgstr "lekönyvelt"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_registered"
+msgid "Registered"
+msgstr "Rögzítve"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_find_same_related_to"
+msgid ""
+"You are post for two or more origins that are linked to lines with the same "
+"related (%(related_to)s) record and sum more than the related to amount. "
+"Please post for only one origin."
+msgstr ""
+"Két vagy több olyan forrást könyvel, amelyek ugyanahhoz a kapcsolódó "
+"rekordhoz (%(related_to)s) tartozó sorokhoz kapcsolódnak, és összegük "
+"meghaladja a kapcsolódó összeget. Egyszerre csak egy forrást könyveljen."
+
+msgctxt "model:ir.message,text:msg_journal_weight_unique"
+msgid "Weight Type must be unique per journal."
+msgstr "A súlyozási típusnak naplónként egyedinek kell lennie."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_not_enough_amount_to_pay"
+msgid ""
+"The invoice has not enougth amount to pay. It's %(amount_to_pay)s € and the "
+"origins selected sum %(origins_amount)s €."
+msgstr ""
+"A számla fizetendő összege nem elegendő: %(amount_to_pay)s €, a kiválasztott"
+" források összege pedig %(origins_amount)s €."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_not_use_blocked_account_move"
+msgid ""
+"The suggestion you are trying to use adds move line(s) \"%(move_lines)s\" "
+"whose payments are blocked. Are you sure you want to continue?"
+msgstr ""
+"A kiválasztott javaslat zárolt fizetésű könyvelési tétel(eke)t ad hozzá: "
+"„%(move_lines)s”. Biztosan folytatja?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_line_with_move"
+msgid ""
+"The line has move \"%(move)s\" related to it. Cancel or delete the line will"
+" delete that move. Do you want to continue?"
+msgstr ""
+"A sorhoz a(z) „%(move)s” könyvelési bizonylat kapcsolódik. A sor "
+"visszavonása vagy törlése ezt a bizonylatot is törli. Folytatja?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_lines_with_move"
+msgid ""
+"The lines \"%(lines)s\" has moves related to it. Cancel or delete lines will"
+" delete those moves. Do you want to continue?"
+msgstr ""
+"A(z) „%(lines)s” sorokhoz könyvelési bizonylatok kapcsolódnak. A sorok "
+"visszavonása vagy törlése ezeket a bizonylatokat is törli. Folytatja?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_pending_amount"
+msgid ""
+"The origin could not be reconciled because the amount of the lines "
+"\"%(line_amount)s\" and the amount of the origin \"%(origin_amount)s\" "
+"differ."
+msgstr ""
+"A forrás nem egyeztethető, mert a sorok összege („%(line_amount)s”) és a "
+"forrás összege („%(origin_amount)s”) eltér."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origins_with_lines"
+msgid ""
+"The origins \"%(origins)s\" have lines. If you want to use them to pay an "
+"Invoice, the related lines will be removed."
+msgstr ""
+"A(z) „%(origins)s” forrásokhoz sorok tartoznak. Ha számla kifizetésére "
+"használja őket, a kapcsolódó sorok törlődnek."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_repeated_related_to_used"
+msgid ""
+"The related \"%(related_to)s\" is usde in a line of the posted origin "
+"\"%(origin)s.\""
+msgstr ""
+"A kapcsolódó „%(related_to)s” rekordot a könyvelt „%(origin)s” forrás egyik "
+"sora használja."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_statement_line_delete"
+msgid ""
+"It is not possible to remove the line \"%(line)s\", because the related "
+"statement \"%(statement)s\" is validated or posted."
+msgstr ""
+"A(z) „%(line)s” sor nem törölhető, mert a kapcsolódó „%(statement)s” kivonat"
+" érvényesítve vagy könyvelve van."
+
+#, python-format
+msgctxt "model:ir.message,text:msg_suggested_line_related_to_statement_line"
+msgid ""
+"There is some suggested line relate to the statement lines of the origins "
+"\"%(origins_name)s\". Befeore make a new search, remove the statement line."
+msgstr ""
+"Egy javasolt sor a(z) „%(origins_name)s” források kivonatsoraihoz "
+"kapcsolódik. Új keresés előtt törölje a kivonatsort."
+
+msgctxt "model:ir.model.button,string:evaluate_weights_button"
+msgid "Evaluate Weights"
+msgstr "Súlyok kiértékelése"
+
+msgctxt "model:ir.model.button,string:statement_line_add_pending_button"
+msgid "Add Pending"
+msgstr "Függő tételek hozzáadása"
+
+msgctxt "model:ir.model.button,string:statement_line_multiple_invoices_button"
+msgid "Add Invoices"
+msgstr "Számlák hozzáadása"
+
+msgctxt ""
+"model:ir.model.button,string:statement_line_multiple_move_lines_button"
+msgid "Add Move Lines"
+msgstr "Könyvelési tételek hozzáadása"
+
+msgctxt "model:ir.model.button,string:statement_origin_cancel_button"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt "model:ir.model.button,string:statement_origin_link_invoice_button"
+msgid "Link Invoice"
+msgstr "Számla összekapcsolása"
+
+msgctxt "model:ir.model.button,string:statement_origin_post_button"
+msgid "Post"
+msgstr "Rögzítés"
+
+msgctxt "model:ir.model.button,string:statement_origin_register_button"
+msgid "Register"
+msgstr "Rögzítés"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_search_suggestions_button"
+msgid "Search Suggestions"
+msgstr "Javaslatok keresése"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_suggested_line_propose_button"
+msgid "Propose"
+msgstr "Javaslat készítése"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_suggested_line_use_button"
+msgid "Use"
+msgstr "Használat"
+
+msgctxt "model:ir.model.button,string:statement_register_button"
+msgid "Register"
+msgstr "Rögzítés"
+
+msgctxt "model:ir.sequence,name:sequence_account_statement_origin"
+msgid "Account Statement Origin"
+msgstr "Könyvelési kivonat forrása"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_account_statement_origin"
+msgid "Account Statement Origin"
+msgstr "Könyvelési kivonat forrása"
+
+msgctxt "model:ir.ui.menu,name:menu_statement_form"
+msgid "Statement Origins"
+msgstr "Kivonatforrások"
+
+msgctxt "model:statement.link.invoice.start,string:"
+msgid "Statement Link Invoice Start"
+msgstr "Kivonat összekapcsolása számlával – kezdés"
+
+msgctxt "report:account.statement:"
+msgid "#"
+msgstr "#"
+
+msgctxt "report:account.statement:"
+msgid "Amount"
+msgstr "Összeg"
+
+msgctxt "report:account.statement:"
+msgid "Cancelled"
+msgstr "érvénytelen"
+
+msgctxt "report:account.statement:"
+msgid "Date"
+msgstr "Dátum"
+
+msgctxt "report:account.statement:"
+msgid "Date:"
+msgstr "Dátum:"
+
+msgctxt "report:account.statement:"
+msgid "Description"
+msgstr "Leírás"
+
+msgctxt "report:account.statement:"
+msgid "Draft"
+msgstr "vázlat"
+
+msgctxt "report:account.statement:"
+msgid "Journal:"
+msgstr "Számlakivonat napló:"
+
+msgctxt "report:account.statement:"
+msgid "Number"
+msgstr "Szám"
+
+msgctxt "report:account.statement:"
+msgid "Party"
+msgstr "Ügyfél"
+
+msgctxt "report:account.statement:"
+msgid "Statement"
+msgstr "Bankszámlakivonat"
+
+msgctxt "report:account.statement:"
+msgid "Total"
+msgstr "Összesen"
+
+msgctxt "selection:account.statement,state:"
+msgid "Registered"
+msgstr "Rögzítve"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Based On Match"
+msgstr "Egyezés alapján"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Combination Escape Threshold"
+msgstr "Kombinációkeresés leállítási küszöbe"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Date Match"
+msgstr "Dátumegyezés"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Escape Threshold"
+msgstr "Leállítási küszöb"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Max Suggestion Count"
+msgstr "Javaslatok maximális száma"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Move Line Max Count"
+msgstr "Könyvelési tételek maximális száma"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Number Match"
+msgstr "Számazonosság"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Delta Days"
+msgstr "Forrás dátumeltérése napokban"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Similarity"
+msgstr "Forrás hasonlósága"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Similarity Threshold"
+msgstr "Forrás hasonlósági küszöbe"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Party Match"
+msgstr "Partneregyezés"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Party Uniformity"
+msgstr "Partnerazonosság"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Target Combinations"
+msgstr "Célkombinációk"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Balance"
+msgstr "Típus: egyenleg"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Balance Invoice"
+msgstr "Típus: számlaegyenleg"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Combination All"
+msgstr "Típus: összes kombináció"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Combination Party"
+msgstr "Típus: partnerkombináció"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Origin"
+msgstr "Típus: forrás"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Payment"
+msgstr "Típus: fizetés"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Payment Group"
+msgstr "Típus: fizetési csoport"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Sale"
+msgstr "Típus: értékesítés"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Cancelled"
+msgstr "érvénytelen"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Posted"
+msgstr "lekönyvelt"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Registered"
+msgstr "Rögzítve"
+
+msgctxt "selection:account.statement.origin.suggested.line,state:"
+msgid "Proposed"
+msgstr "Javasolva"
+
+msgctxt "selection:account.statement.origin.suggested.line,state:"
+msgid "Used"
+msgstr "Felhasználva"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Balance"
+msgstr "Egyenleg"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Balance Invoices"
+msgstr "Számlák egyenlege"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Combine All"
+msgstr "Összes kombinálása"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Combine Parties"
+msgstr "Partnerek kombinálása"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Origin"
+msgstr "Eredet"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Payment"
+msgstr "Fizetés"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Payment Group"
+msgstr "Fizetési csoport"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Sale"
+msgstr "Vevői rendelés"
+
+msgctxt "view:account.invoice:"
+msgid "Tax"
+msgstr "Adó"
+
+msgctxt "view:account.invoice:"
+msgid "Total"
+msgstr "Összesen"
+
+msgctxt "view:account.invoice:"
+msgid "Untaxed"
+msgstr "Nettó"
+
+msgctxt "view:account.move.line:"
+msgid "Total credit"
+msgstr "Követel összesen"
+
+msgctxt "view:account.move.line:"
+msgid "Total debit"
+msgstr "Tartozik összesen"
+
+msgctxt "view:account.statement:"
+msgid "End Time"
+msgstr "Befejezés időpontja"
+
+msgctxt "view:account.statement:"
+msgid "Start Time"
+msgstr "Kezdés időpontja"
+
+msgctxt ""
+"wizard_button:account.statement.origin.create_line,start,create_lines:"
+msgid "OK"
+msgstr "OK"
+
+msgctxt "wizard_button:account.statement.origin.create_line,start,end:"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt ""
+"wizard_button:account.statement.origin.multiple.invoices,start,create_lines:"
+msgid "OK"
+msgstr "OK"
+
+msgctxt "wizard_button:account.statement.origin.multiple.invoices,start,end:"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt ""
+"wizard_button:account.statement.origin.multiple.move_lines,start,create_lines:"
+msgid "OK"
+msgstr "OK"
+
+msgctxt ""
+"wizard_button:account.statement.origin.multiple.move_lines,start,end:"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt "wizard_button:statement.link.invoice,start,apply:"
+msgid "Apply"
+msgstr "Alkalmazás"
+
+msgctxt "wizard_button:statement.link.invoice,start,end:"
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt "field:account.statement.journal,similarity_threshold:"
+msgid "Similarity Threshold"
+msgstr "Hasonlósági küszöb"
+
+msgctxt "field:account.statement.journal,statement_provider:"
+msgid "Synchronization Provider"
+msgstr "Szinkronizálási szolgáltató"
+
+msgctxt "field:account.statement.origin.suggested.line,name:"
+msgid "Name"
+msgstr "Név"
+
+msgctxt "field:account.statement.origin.suggested.line,similarity:"
+msgid "Similarity"
+msgstr "Hasonlóság"
+
+msgctxt "model:account.statement.journal.weight,name:"
+msgid "Journal Weight"
+msgstr "Napló súlya"
+
+msgctxt "model:account.statement.origin.create_line.start,name:"
+msgid "Create Statement Lines from origins Start View"
+msgstr "Kivonatsorok létrehozása forrásokból – kezdőnézet"
+
+msgctxt "model:account.statement.origin.multiple.invoices.start,name:"
+msgid "Add Multiple Invoices Start"
+msgstr "Több számla hozzáadása – kezdés"
+
+msgctxt "model:account.statement.origin.multiple.move_lines.start,name:"
+msgid "Add Multiple Move Lines Start"
+msgstr "Több könyvelési tétel hozzáadása – kezdés"
+
+msgctxt "model:account.statement.origin.suggested.line,name:"
+msgid "Account Statement Origin Suggested Line"
+msgstr "Kivonatforrás javasolt sora"
+
+msgctxt "model:statement.link.invoice.start,name:"
+msgid "Link Invoice Start"
+msgstr "Számla összekapcsolása – kezdés"
+
+msgctxt "selection:account.statement.journal,statement_provider:"
+msgid "Manual Import"
+msgstr "Kézi importálás"
