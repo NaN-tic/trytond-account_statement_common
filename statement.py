@@ -5,6 +5,7 @@ import difflib
 import hashlib
 import math
 import functools
+from collections import defaultdict
 from unidecode import unidecode
 from datetime import datetime, timedelta
 from decimal import Decimal
@@ -110,6 +111,15 @@ class Statement(metaclass=PoolMeta):
 
     start_date = fields.DateTime("Start Date", readonly=True)
     end_date = fields.DateTime("End Date", readonly=True)
+
+    @classmethod
+    @ModelView.button
+    def post(cls, statements):
+        Origin = Pool().get('account.statement.origin')
+        Origin.check_possible_duplicates([
+                origin for statement in statements for origin in statement.origins
+                if origin.state == 'registered'])
+        super().post(statements)
 
     @fields.depends('journal')
     def on_change_journal(self):
@@ -823,6 +833,16 @@ class Line(metaclass=PoolMeta):
 class Origin(Workflow, metaclass=PoolMeta):
     __name__ = 'account.statement.origin'
 
+    possible_duplicates = fields.Function(fields.Many2Many(
+            'account.statement.origin', None, None, "Possible Duplicates"),
+        'get_possible_duplicates')
+    possible_duplicate = fields.Function(fields.Boolean("Possible Duplicate"),
+        'get_possible_duplicates')
+    duplicates_reviewed = fields.Boolean("Duplicates Reviewed", states={
+            'editable': Eval('state') == 'registered',
+            }, help="Check after confirming that the matching movements are "
+        "legitimate separate transactions.")
+
     journal = fields.Function(fields.Many2One('account.statement.journal', 'Journal'),
             'get_journal', searcher='search_journal')
     entry_reference = fields.Char("Entry Reference", readonly=True)
@@ -1004,6 +1024,70 @@ class Origin(Workflow, metaclass=PoolMeta):
         cursor.execute(*query)
         return [('id', operator, [x[0] for x in cursor.fetchall()])]
 
+    @classmethod
+    def _get_possible_duplicate_domain(cls, origins):
+        "Return the candidate search domain for a batch of origins."
+        return [
+            ('statement.journal', 'in',
+                list({o.statement.journal.id for o in origins})),
+            ('date', 'in', list({o.date for o in origins})),
+            ('amount', 'in', list({o.amount for o in origins})),
+            ('state', '!=', 'cancelled'),
+            ]
+
+    def _get_possible_duplicate_key(self):
+        "Group candidates by stable transaction attributes, without identifiers."
+        return (self.statement.journal.id, self.company.id, self.currency.id,
+            self.date, self.amount, self.description or '')
+
+    def _is_possible_duplicate(self, candidate):
+        "Compare candidates sharing a key; connectors may refine this rule."
+        return (candidate.id != self.id
+            and (candidate.information or {}) == (self.information or {}))
+
+    @classmethod
+    def get_possible_duplicates(cls, origins, names):
+        matches = {origin.id: [] for origin in origins}
+        eligible = [o for o in origins
+            if o.id >= 0 and o.state != 'cancelled']
+        for batch in grouped_slice(eligible):
+            batch = list(batch)
+            by_key = defaultdict(list)
+            for origin in batch:
+                by_key[origin._get_possible_duplicate_key()].append(origin)
+            candidates = cls.search(cls._get_possible_duplicate_domain(batch),
+                order=[('id', 'ASC')])
+            for candidate in candidates:
+                key = candidate._get_possible_duplicate_key()
+                for origin in by_key.get(key, []):
+                    if origin._is_possible_duplicate(candidate):
+                        matches[origin.id].append(candidate.id)
+        return {name: {
+                    origin.id: (bool(matches[origin.id])
+                        if name == 'possible_duplicate' else matches[origin.id])
+                    for origin in origins}
+                for name in names}
+
+    @classmethod
+    def check_possible_duplicates(cls, origins):
+        Warning = Pool().get('res.user.warning')
+        origins = [o for o in origins if not o.duplicates_reviewed]
+        matches = cls.get_possible_duplicates(
+            origins, ['possible_duplicates'])['possible_duplicates']
+        for origin in origins:
+            duplicates = cls.browse(matches[origin.id])
+            if not duplicates:
+                continue
+            warning_name = Warning.format('statement_possible_duplicates',
+                [origin, *duplicates])
+            if Warning.check(warning_name):
+                raise UserWarning(warning_name, gettext(
+                        'account_statement_common.msg_possible_duplicate',
+                        origin=origin.rec_name,
+                        duplicates=', '.join(
+                            '%s [%s]' % (o.rec_name, o.id)
+                            for o in duplicates)))
+
     def validate_amount(self):
         pool = Pool()
         Lang = pool.get('ir.lang')
@@ -1025,6 +1109,7 @@ class Origin(Workflow, metaclass=PoolMeta):
         '''Basically is a piece of copy & paste from account_statement
         validate_statement(), but adapted to work at origin level
         '''
+        cls.check_possible_duplicates(origins)
         pool = Pool()
         StatementLine = pool.get('account.statement.line')
         Invoice = pool.get('account.invoice')
@@ -2254,6 +2339,7 @@ class Origin(Workflow, metaclass=PoolMeta):
     @classmethod
     def copy(cls, origins, default=None):
         default = default.copy() if default is not None else {}
+        default.setdefault('duplicates_reviewed', False)
         default.setdefault('entry_reference', None)
         default.setdefault('suggested_lines', None)
         default.setdefault('balance', None)
