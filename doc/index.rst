@@ -69,6 +69,35 @@ Connectors can extend ``account.statement.origin.on_change_with_synchronized``
 to protect imported origins from editing. The default is false; Enable Banking
 preserves its existing rule based on the journal's session.
 
+Possible duplicate movements
+============================
+
+Origins with the same journal, company, currency, date, signed amount,
+description and information are shown in the ``Possible Duplicates`` tab.
+Cancelled origins are excluded. Detection does not require an external
+identifier, and never suppresses imports or suggestion searches. Before posting
+an origin or a statement, users must confirm the warning or mark the origin's
+duplicates as reviewed. Review flags are not copied to new origins.
+
+Connectors can specialize these methods on ``account.statement.origin``:
+
+* ``_get_possible_duplicate_domain(origins)`` selects candidates for a batch.
+* ``_get_possible_duplicate_key()`` groups candidates by stable attributes.
+* ``_is_possible_duplicate(candidate)`` compares origins sharing that key;
+  the default compares their information dictionaries and excludes the origin
+  itself. Override it with ``super()`` to add connector-specific criteria.
+
+When relaxing date or amount matching, adapt both the domain and grouping key
+so the candidates reach the comparison step. Keep the journal, company and
+currency boundaries. Scope connector overrides to their own provider.
+Enable Banking requires nonempty, different entry references in its comparison
+override. It does not currently parse dates embedded in those references.
+Its import-time check for already downloaded references remains separate.
+
+Upgrade both modules together when moving this feature from Enable Banking.
+The existing ownership migration transfers its fields, views, message and
+translations to the common module, preserving IDs and saved review flags.
+
 Configuration
 =============
 

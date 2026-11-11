@@ -71,24 +71,17 @@ class ModelData(metaclass=PoolMeta):
             'enable_banking_session',
             'enable_banking_session_allowed_bank_accounts', 'offset_days_to',
             ]
-        connector_origin_fields = [
-            'possible_duplicate', 'possible_duplicates', 'duplicates_reviewed',
-            ]
         cursor.execute(*model.update([model.module], [new_module],
                 where=(model.module == old_module)
                 & ~model.name.like('enable_banking.%')))
         common_fields = ((field.module == old_module)
             & ~field.model.like('enable_banking.%')
             & ~((field.model == 'account.statement.journal')
-                & field.name.in_(connector_fields))
-            & ~((field.model == 'account.statement.origin')
-                & field.name.in_(connector_origin_fields)))
+                & field.name.in_(connector_fields)))
         cursor.execute(*field.update([field.module], [new_module],
                 where=common_fields))
         connector_names = [f'account.statement.journal,{name}'
-            for name in connector_fields] + [
-                f'account.statement.origin,{name}'
-                for name in connector_origin_fields] + ['ir.cron,method']
+            for name in connector_fields] + ['ir.cron,method']
         cursor.execute(*translation.update(
                 [translation.module], [new_module],
                 where=(translation.module == old_module)

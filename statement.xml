@@ -52,6 +52,17 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">statement_origin_tree</field>
         </record>
 
+        <record model="ir.ui.view" id="statement_origin_duplicate_form">
+            <field name="model">account.statement.origin</field>
+            <field name="inherit" ref="statement_origin_form"/>
+            <field name="name">statement_origin_duplicate_form</field>
+        </record>
+        <record model="ir.ui.view" id="statement_origin_duplicate_tree">
+            <field name="model">account.statement.origin</field>
+            <field name="inherit" ref="account_statement.statement_origin_view_tree"/>
+            <field name="name">statement_origin_duplicate_tree</field>
+        </record>
+
         <record model="ir.action.act_window" id="act_statement_origin_form">
             <field name="name">Statement Origins</field>
             <field name="res_model">account.statement.origin</field>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/field[@name='lines']" position="replace">
+        <notebook colspan="8">
+            <page string="Lines" id="lines" col="4">
+                <field name="lines" colspan="4" height="250"
+                    view_ids="account_statement_common.origin_statement_line_view_tree_editable"/>
+            </page>
+            <page string="Possible Duplicates" id="possible_duplicates" col="4">
+                <label name="possible_duplicate"/>
+                <field name="possible_duplicate"/>
+                <label name="duplicates_reviewed"/>
+                <field name="duplicates_reviewed"/>
+                <field name="possible_duplicates" colspan="4" height="250"
+                    view_ids="account_statement.statement_origin_view_tree,account_statement_common.statement_origin_form"/>
+            </page>
+        </notebook>
+    </xpath>
+</data>
