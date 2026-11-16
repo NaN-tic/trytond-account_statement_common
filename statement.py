@@ -838,6 +838,8 @@ class Origin(Workflow, metaclass=PoolMeta):
         'get_possible_duplicates')
     possible_duplicate = fields.Function(fields.Boolean("Possible Duplicate"),
         'get_possible_duplicates')
+    conflict_details = fields.Function(fields.Text("Conflict Details"),
+        'get_possible_duplicates')
     duplicates_reviewed = fields.Boolean("Duplicates Reviewed", states={
             'editable': Eval('state') == 'registered',
             }, help="Check after confirming that the matching movements are "
@@ -868,6 +870,20 @@ class Origin(Workflow, metaclass=PoolMeta):
         searcher='search_remittance_information')
     synchronized = fields.Function(fields.Boolean('Synchronized'),
         'on_change_with_synchronized')
+
+    def _get_import_differences(self, transaction):
+        "Return differing bank data fields, independently of the reference."
+        differences = []
+        for name in ('date', 'amount', 'description', 'information', 'balance'):
+            current = getattr(self, name)
+            incoming = transaction.get(name)
+            if name == 'description':
+                current, incoming = current or '', incoming or ''
+            elif name == 'information':
+                current, incoming = current or {}, incoming or {}
+            if current != incoming:
+                differences.append(name)
+        return differences
 
     @classmethod
     def __setup__(cls):
@@ -1030,8 +1046,15 @@ class Origin(Workflow, metaclass=PoolMeta):
         return [
             ('statement.journal', 'in',
                 list({o.statement.journal.id for o in origins})),
-            ('date', 'in', list({o.date for o in origins})),
-            ('amount', 'in', list({o.amount for o in origins})),
+            ['OR',
+                ('entry_reference', 'in',
+                    list({o.entry_reference for o in origins
+                        if o.entry_reference})),
+                [
+                    ('date', 'in', list({o.date for o in origins})),
+                    ('amount', 'in', list({o.amount for o in origins})),
+                    ],
+                ],
             ('state', '!=', 'cancelled'),
             ]
 
@@ -1048,22 +1071,65 @@ class Origin(Workflow, metaclass=PoolMeta):
     @classmethod
     def get_possible_duplicates(cls, origins, names):
         matches = {origin.id: [] for origin in origins}
+        details = {origin.id: [] for origin in origins}
+        if 'conflict_details' in names:
+            labels = cls.fields_get(
+                ['date', 'amount', 'description', 'information', 'balance'])
         eligible = [o for o in origins
             if o.id >= 0 and o.state != 'cancelled']
         for batch in grouped_slice(eligible):
             batch = list(batch)
             by_key = defaultdict(list)
+            by_reference = defaultdict(list)
             for origin in batch:
                 by_key[origin._get_possible_duplicate_key()].append(origin)
+                if origin.entry_reference:
+                    by_reference[(origin.statement.journal.id,
+                        origin.company.id, origin.currency.id,
+                        origin.entry_reference)].append(origin)
             candidates = cls.search(cls._get_possible_duplicate_domain(batch),
                 order=[('id', 'ASC')])
             for candidate in candidates:
+                reference_key = (candidate.statement.journal.id,
+                    candidate.company.id, candidate.currency.id,
+                    candidate.entry_reference)
+                for origin in by_reference.get(reference_key, []):
+                    if candidate.id == origin.id:
+                        continue
+                    differences = origin._get_import_differences({
+                            name: getattr(candidate, name)
+                            for name in ('date', 'amount', 'description',
+                                'information', 'balance')})
+                    if differences:
+                        matches[origin.id].append(candidate.id)
+                        if 'conflict_details' in names:
+                            details[origin.id].append(gettext(
+                                    'account_statement_common.'
+                                    'msg_reference_conflict',
+                                    origin=candidate.rec_name,
+                                    reference=candidate.entry_reference,
+                                    fields=', '.join(labels[name]['string']
+                                        for name in differences)))
                 key = candidate._get_possible_duplicate_key()
                 for origin in by_key.get(key, []):
-                    if origin._is_possible_duplicate(candidate):
+                    if (candidate.id not in matches[origin.id]
+                            and origin._is_possible_duplicate(candidate)):
                         matches[origin.id].append(candidate.id)
+                        if 'conflict_details' in names:
+                            message = 'msg_matching_transaction'
+                            if (origin.entry_reference
+                                    and candidate.entry_reference
+                                    and origin.entry_reference
+                                    != candidate.entry_reference):
+                                message = 'msg_changed_reference'
+                            details[origin.id].append(gettext(
+                                    'account_statement_common.' + message,
+                                    origin=candidate.rec_name,
+                                    reference=candidate.entry_reference))
         return {name: {
-                    origin.id: (bool(matches[origin.id])
+                    origin.id: ('\n'.join(details[origin.id])
+                        if name == 'conflict_details'
+                        else bool(matches[origin.id])
                         if name == 'possible_duplicate' else matches[origin.id])
                     for origin in origins}
                 for name in names}

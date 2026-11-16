@@ -253,16 +253,18 @@ class Journal(metaclass=PoolMeta):
         Origin = Pool().get('account.statement.origin')
         assert statement.journal == self
         origins = []
-        references = set()
+        by_reference = {}
         for transaction in transactions:
             reference = transaction['entry_reference']
-            if not reference or reference in references:
+            if not reference:
                 continue
-            references.add(reference)
-            if Origin.search([
-                    ('statement.journal', '=', self.id),
-                    ('entry_reference', '=', reference),
-                    ], limit=1):
+            if reference not in by_reference:
+                by_reference[reference] = list(Origin.search([
+                            ('statement.journal', '=', self.id),
+                            ('entry_reference', '=', reference),
+                            ]))
+            if any(not origin._get_import_differences(transaction)
+                    for origin in by_reference[reference]):
                 continue
             origin = Origin()
             origin.statement = statement
@@ -277,6 +279,7 @@ class Journal(metaclass=PoolMeta):
             origin.balance = transaction.get('balance')
             origin.information = transaction.get('information', {})
             origins.append(origin)
+            by_reference[reference].append(origin)
         Origin.save(origins)
         return origins
 
