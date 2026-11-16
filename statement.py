@@ -841,6 +841,20 @@ class Origin(Workflow, metaclass=PoolMeta):
     synchronized = fields.Function(fields.Boolean('Synchronized'),
         'on_change_with_synchronized')
 
+    def _get_import_differences(self, transaction):
+        "Return differing bank data fields, independently of the reference."
+        differences = []
+        for name in ('date', 'amount', 'description', 'information', 'balance'):
+            current = getattr(self, name)
+            incoming = transaction.get(name)
+            if name == 'description':
+                current, incoming = current or '', incoming or ''
+            elif name == 'information':
+                current, incoming = current or {}, incoming or {}
+            if current != incoming:
+                differences.append(name)
+        return differences
+
     @classmethod
     def __setup__(cls):
         super().__setup__()

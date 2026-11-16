@@ -73,6 +73,7 @@ class ModelData(metaclass=PoolMeta):
             ]
         connector_origin_fields = [
             'possible_duplicate', 'possible_duplicates', 'duplicates_reviewed',
+            'conflict_details',
             ]
         cursor.execute(*model.update([model.module], [new_module],
                 where=(model.module == old_module)
