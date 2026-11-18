@@ -18,10 +18,12 @@ Within one Tryton transaction:
 
 1. Call ``journal.create_import_statement(date_from, date_to)`` to lock the journal
    and create a registered statement. Both arguments are ``datetime.date`` values.
-2. Normalize each page and call
+2. Normalize the downloaded transactions and call
    ``journal.import_statement_transactions(statement, transactions)``. It returns
-   the newly saved origins and skips references already imported into that journal
-   or repeated within the page.
+   the newly saved origins and skips exact matches already imported into that journal
+   or repeated within the download. For a deferred review, pass ``review=True``
+   to both methods and import all pages together, so missing movements are
+   identified only after the full period has been fetched.
 3. Collect the returned origins from every page and call
    ``journal.finish_import_statement(statement, origins)`` exactly once after the
    download finishes. This sets the closing balance, numbers origins and queues
@@ -29,9 +31,10 @@ Within one Tryton transaction:
 
 Normalized transactions are dictionaries with these keys:
 
-* ``entry_reference``: stable, nonempty bank transaction identifier within the
-  journal. Missing references are skipped. A connector switching providers must
-  account for differences in their identifiers before importing overlapping dates.
+* ``entry_reference``: bank transaction identifier within the journal.
+  Missing references are skipped outside deferred review. A connector switching
+  providers must account for differences in their identifiers before importing
+  overlapping dates.
 * ``date``: ``datetime.date`` selected according to the connector's date policy.
 * ``amount``: signed ``Decimal`` in the journal's currency. The connector must
   validate the source currency; debits are negative.
@@ -69,34 +72,11 @@ Connectors can extend ``account.statement.origin.on_change_with_synchronized``
 to protect imported origins from editing. The default is false; Enable Banking
 preserves its existing rule based on the journal's session.
 
-Possible duplicate movements
-============================
+Movement review
+===============
 
-Origins with the same journal, company, currency, date, signed amount,
-description and information are shown in the ``Possible Duplicates`` tab.
-Cancelled origins are excluded. Detection does not require an external
-identifier, and never suppresses imports or suggestion searches. Before posting
-an origin or a statement, users must confirm the warning or mark the origin's
-duplicates as reviewed. Review flags are not copied to new origins.
-
-Connectors can specialize these methods on ``account.statement.origin``:
-
-* ``_get_possible_duplicate_domain(origins)`` selects candidates for a batch.
-* ``_get_possible_duplicate_key()`` groups candidates by stable attributes.
-* ``_is_possible_duplicate(candidate)`` compares origins sharing that key;
-  the default compares their information dictionaries and excludes the origin
-  itself. Override it with ``super()`` to add connector-specific criteria.
-
-When relaxing date or amount matching, adapt both the domain and grouping key
-so the candidates reach the comparison step. Keep the journal, company and
-currency boundaries. Scope connector overrides to their own provider.
-Enable Banking requires nonempty, different entry references in its comparison
-override. It does not currently parse dates embedded in those references.
-Its import-time check for already downloaded references remains separate.
-
-Upgrade both modules together when moving this feature from Enable Banking.
-The existing ownership migration transfers its fields, views, message and
-translations to the common module, preserving IDs and saved review flags.
+Both regular synchronization and deferred review compare movements within the
+statement journal. See the Enable Banking documentation for the review workflow.
 
 Configuration
 =============

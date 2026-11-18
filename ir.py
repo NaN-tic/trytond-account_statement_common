@@ -70,6 +70,7 @@ class ModelData(metaclass=PoolMeta):
             'aspsp_name', 'aspsp_country', 'synchronize_journal',
             'enable_banking_session',
             'enable_banking_session_allowed_bank_accounts', 'offset_days_to',
+            'review_margin_days', 'review_start_date', 'reviewed_until',
             ]
         cursor.execute(*model.update([model.module], [new_module],
                 where=(model.module == old_module)

@@ -3,17 +3,14 @@
 this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data grouped="1">
-        <record model="ir.message" id="msg_possible_duplicate">
-            <field name="text">Origin "%(origin)s" may duplicate or conflict with these bank movements: %(duplicates)s. Review the conflict details before posting. Do you want to continue?</field>
+        <record model="ir.message" id="msg_review_difference">
+            <field name="text">Possible conflict with origin %(origin)s. Different fields: %(fields)s.</field>
         </record>
-        <record model="ir.message" id="msg_reference_conflict">
-            <field name="text">Origin "%(origin)s": same entry reference "%(reference)s", but different fields: %(fields)s.</field>
+        <record model="ir.message" id="msg_review_missing">
+            <field name="text">The movement was not returned by the bank when reviewing its date.</field>
         </record>
-        <record model="ir.message" id="msg_changed_reference">
-            <field name="text">Origin "%(origin)s": same date, amount, description and information, but a different entry reference "%(reference)s".</field>
-        </record>
-        <record model="ir.message" id="msg_matching_transaction">
-            <field name="text">Origin "%(origin)s": same date, amount, description and information.</field>
+        <record model="ir.message" id="msg_review_cancel">
+            <field name="text">Marking these origins as reviewed will cancel them because they were created for a discrepancy and have no statement lines: %(origins)s. Do you want to continue?</field>
         </record>
         <record model="ir.message" id="msg_origin_pending_amount">
             <field name="text">The origin could not be reconciled because the amount of the lines "%(line_amount)s" and the amount of the origin "%(origin_amount)s" differ.</field>
