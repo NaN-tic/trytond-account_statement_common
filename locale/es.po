@@ -2,6 +2,70 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:account.statement,banking_review:"
+msgid "Banking Review"
+msgstr "Revisión bancaria"
+
+msgctxt "field:account.statement.origin,review_state:"
+msgid "Review State"
+msgstr "Estado de revisión"
+
+msgctxt "field:account.statement.origin,review_details:"
+msgid "Review Details"
+msgstr "Detalles de la revisión"
+
+msgctxt "field:account.statement.origin,review_created:"
+msgid "Created by Review"
+msgstr "Creado por la revisión"
+
+msgctxt "field:account.statement.origin,review_origins:"
+msgid "Related Origins"
+msgstr "Orígenes relacionados"
+
+msgctxt "field:account.statement.origin.review,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:account.statement.origin.review,related:"
+msgid "Related Origin"
+msgstr "Origen relacionado"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "Pending Review"
+msgstr "Pendiente de revisión"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "With Discrepancies"
+msgstr "Con discrepancias"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "Reviewed"
+msgstr "Revisado"
+
+msgctxt "model:ir.model.button,string:origin_mark_reviewed_button"
+msgid "Mark as Reviewed"
+msgstr "Marcar como revisado"
+
+msgctxt "model:ir.action.act_window.domain,name:act_origin_discrepancies"
+msgid "With Discrepancies"
+msgstr "Con discrepancias"
+
+msgctxt "view:account.statement.origin:"
+msgid "Review"
+msgstr "Revisión"
+
+msgctxt "model:ir.message,text:msg_review_difference"
+msgid "Possible conflict with origin %(origin)s. Different fields: %(fields)s."
+msgstr "Posible conflicto con el origen %(origin)s. Campos diferentes: %(fields)s."
+
+msgctxt "model:ir.message,text:msg_review_missing"
+msgid "The movement was not returned by the bank when reviewing its date."
+msgstr "El banco no ha devuelto el movimiento al revisar su fecha."
+
+msgctxt "model:ir.message,text:msg_review_cancel"
+msgid "Marking these origins as reviewed will cancel them because they were created for a discrepancy and have no statement lines: %(origins)s. Do you want to continue?"
+msgstr "Al marcar estos orígenes como revisados se cancelarán porque se crearon por una discrepancia y no tienen líneas de extracto: %(origins)s. ¿Desea continuar?"
+
 msgctxt "field:account.invoice,paid_directly:"
 msgid "Has Payed directly"
 msgstr "Ha pagado directamente"

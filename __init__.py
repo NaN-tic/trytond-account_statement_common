@@ -17,6 +17,7 @@ def register():
         statement.Statement,
         statement.Line,
         statement.Origin,
+        statement.OriginReview,
         statement.OriginSuggestedLine,
         statement.AddMultipleInvoicesStart,
         statement.AddMultipleMoveLinesStart,

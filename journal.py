@@ -7,6 +7,7 @@ from decimal import Decimal
 import trytond.config as config
 from trytond.cache import Cache
 from trytond.exceptions import UserError
+from trytond.i18n import gettext
 from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval, Id
@@ -208,7 +209,7 @@ class Journal(metaclass=PoolMeta):
         self._get_weight_cache.set(key, value)
         return value
 
-    def create_import_statement(self, date_from, date_to):
+    def create_import_statement(self, date_from, date_to, review=False):
         "Create a registered statement for a connector's import interval."
         pool = Pool()
         Statement = pool.get('account.statement')
@@ -221,7 +222,9 @@ class Journal(metaclass=PoolMeta):
         statement.name = self.name
         statement.date = Date.today()
         statement.journal = self
-        statement.on_change_journal()
+        statement.banking_review = review
+        if not review:
+            statement.on_change_journal()
         statement.end_balance = Decimal(0)
         if getattr(statement, 'start_balance', None) is None:
             statement.start_balance = Decimal(0)
@@ -231,23 +234,15 @@ class Journal(metaclass=PoolMeta):
         Statement.register([statement])
         return statement
 
-    def import_statement_transactions(self, statement, transactions):
+    def import_statement_transactions(self, statement, transactions,
+            review=False):
         "Import normalized transactions, deduplicating within this journal."
         Origin = Pool().get('account.statement.origin')
         assert statement.journal == self
         origins = []
-        by_reference = {}
         for transaction in transactions:
             reference = transaction['entry_reference']
-            if not reference:
-                continue
-            if reference not in by_reference:
-                by_reference[reference] = list(Origin.search([
-                            ('statement.journal', '=', self.id),
-                            ('entry_reference', '=', reference),
-                            ]))
-            if any(not origin._get_import_differences(transaction)
-                    for origin in by_reference[reference]):
+            if not reference and not review:
                 continue
             origin = Origin()
             origin.statement = statement
@@ -262,9 +257,84 @@ class Journal(metaclass=PoolMeta):
             origin.balance = transaction.get('balance')
             origin.information = transaction.get('information', {})
             origins.append(origin)
-            by_reference[reference].append(origin)
-        Origin.save(origins)
-        return origins
+        return self._review_downloaded_origins(origins,
+            statement.start_date.date(), statement.end_date.date(),
+            review=review)
+
+    def _review_downloaded_origins(self, downloaded, date_from, date_to,
+            review=True):
+        Origin = Pool().get('account.statement.origin')
+        existing = Origin.search([
+                ('statement.journal', '=', self.id),
+                ['OR',
+                    [('date', '>=', date_from), ('date', '<=', date_to)],
+                    ('entry_reference', 'in', list({
+                            o.entry_reference for o in downloaded
+                            if o.entry_reference})),
+                    ],
+                ])
+        seen = set()
+        created = []
+        for incoming in downloaded:
+            candidates = []
+            exact = []
+            for origin in existing:
+                differences = origin.review_differences(incoming)
+                if not differences:
+                    exact.append(origin)
+                elif ((incoming.entry_reference
+                            and incoming.entry_reference
+                            == origin.entry_reference)
+                        or differences == ['entry_reference']):
+                    candidates.append((origin, differences))
+            if exact:
+                seen.update(o.id for o in exact)
+                seen.update(o.id for o, _ in candidates)
+                for match in exact:
+                    for candidate, differences in candidates:
+                        self._link_review_origins(match, candidate, differences)
+                if review:
+                    Origin.write([o for o in exact
+                            if o.review_state == 'pending'],
+                        {'review_state': 'reviewed'})
+                continue
+            incoming.review_state = (
+                'discrepancy' if candidates
+                else 'reviewed' if review else 'pending')
+            incoming.review_created = bool(candidates)
+            Origin.save([incoming])
+            self.set_number([incoming])
+            created.append(incoming)
+            existing.append(incoming)
+            seen.add(incoming.id)
+            for origin, differences in candidates:
+                seen.add(origin.id)
+                self._link_review_origins(incoming, origin, differences)
+        for origin in existing:
+            if (review and date_from <= origin.date <= date_to
+                    and origin.id not in seen
+                    and origin.state != 'cancelled'
+                    and not (origin.review_state == 'reviewed'
+                        and origin.review_details)):
+                Origin.add_review_discrepancy(origin, gettext(
+                        'account_statement_common.msg_review_missing'))
+        return created
+
+    def _link_review_origins(self, first, second, differences):
+        Origin = Pool().get('account.statement.origin')
+        # A known pair may already have been resolved manually.
+        if second in first.review_origins and first in second.review_origins:
+            return
+        newer = max((first, second), key=lambda o: o.id)
+        if newer.entry_reference and newer.statement.start_date:
+            Origin.write([newer], {'review_created': True})
+        labels = Origin.fields_get(differences)
+        fields_changed = ', '.join(
+            labels[name]['string'] for name in differences)
+        for target, related in ((first, second), (second, first)):
+            Origin.add_review_discrepancy(target, gettext(
+                    'account_statement_common.msg_review_difference',
+                    origin=related.rec_name, fields=fields_changed), related)
 
     def finish_import_statement(self, statement, origins):
         "Finalize balances, number imported origins and queue suggestions."
@@ -282,6 +352,8 @@ class Journal(metaclass=PoolMeta):
             if self.search_suggestions:
                 with Transaction().set_context(queue_name=QUEUE_NAME):
                     for origin in origins:
+                        if origin.review_state == 'discrepancy':
+                            continue
                         Origin.__queue__.search_suggestions([origin])
         else:
             with Transaction().set_context(_skip_warnings=True):

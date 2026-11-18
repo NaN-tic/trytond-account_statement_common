@@ -70,6 +70,7 @@ class ModelData(metaclass=PoolMeta):
             'aspsp_name', 'aspsp_country', 'synchronize_journal',
             'enable_banking_session',
             'enable_banking_session_allowed_bank_accounts', 'offset_days_to',
+            'review_margin_days', 'review_start_date', 'reviewed_until',
             ]
         connector_origin_fields = [
             'possible_duplicate', 'possible_duplicates', 'duplicates_reviewed',

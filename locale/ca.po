@@ -2,6 +2,70 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:account.statement,banking_review:"
+msgid "Banking Review"
+msgstr "Revisió bancària"
+
+msgctxt "field:account.statement.origin,review_state:"
+msgid "Review State"
+msgstr "Estat de revisió"
+
+msgctxt "field:account.statement.origin,review_details:"
+msgid "Review Details"
+msgstr "Detalls de la revisió"
+
+msgctxt "field:account.statement.origin,review_created:"
+msgid "Created by Review"
+msgstr "Creat per la revisió"
+
+msgctxt "field:account.statement.origin,review_origins:"
+msgid "Related Origins"
+msgstr "Orígens relacionats"
+
+msgctxt "field:account.statement.origin.review,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:account.statement.origin.review,related:"
+msgid "Related Origin"
+msgstr "Origen relacionat"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "Pending Review"
+msgstr "Pendent de revisió"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "With Discrepancies"
+msgstr "Amb discrepàncies"
+
+msgctxt "selection:account.statement.origin,review_state:"
+msgid "Reviewed"
+msgstr "Revisat"
+
+msgctxt "model:ir.model.button,string:origin_mark_reviewed_button"
+msgid "Mark as Reviewed"
+msgstr "Marca com a revisat"
+
+msgctxt "model:ir.action.act_window.domain,name:act_origin_discrepancies"
+msgid "With Discrepancies"
+msgstr "Amb discrepàncies"
+
+msgctxt "view:account.statement.origin:"
+msgid "Review"
+msgstr "Revisió"
+
+msgctxt "model:ir.message,text:msg_review_difference"
+msgid "Possible conflict with origin %(origin)s. Different fields: %(fields)s."
+msgstr "Possible conflicte amb l'origen %(origin)s. Camps diferents: %(fields)s."
+
+msgctxt "model:ir.message,text:msg_review_missing"
+msgid "The movement was not returned by the bank when reviewing its date."
+msgstr "El banc no ha retornat el moviment en revisar-ne la data."
+
+msgctxt "model:ir.message,text:msg_review_cancel"
+msgid "Marking these origins as reviewed will cancel them because they were created for a discrepancy and have no statement lines: %(origins)s. Do you want to continue?"
+msgstr "En marcar aquests orígens com a revisats es cancel·laran perquè es van crear per una discrepància i no tenen línies d'extracte: %(origins)s. Vols continuar?"
+
 msgctxt "field:account.invoice,paid_directly:"
 msgid "Has Payed directly"
 msgstr "Ha pagat directament"
