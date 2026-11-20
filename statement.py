@@ -927,10 +927,13 @@ class Origin(Workflow, metaclass=PoolMeta):
         for name in ('entry_reference', 'date', 'amount'):
             if getattr(self, name) != getattr(other, name):
                 differences.append(name)
-        name = ('information' if self.information and other.information
-            else 'description')
-        if (getattr(self, name) or None) != (getattr(other, name) or None):
-            differences.append(name)
+        if self.information:
+            incoming = other.information or {}
+            if any(key not in incoming or incoming[key] != value
+                    for key, value in self.information.items()):
+                differences.append('information')
+        elif (self.description or None) != (other.description or None):
+            differences.append('description')
         return differences
 
     @classmethod

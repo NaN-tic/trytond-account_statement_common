@@ -78,10 +78,12 @@ class TestStatementImport(unittest.TestCase):
                 if task.data['model'] == 'account.statement.origin']
             self.assertEqual(len(tasks), 1)
 
-            # A repeated download does not create a second origin.
+            # Additional bank information does not create a second origin.
+            enriched = dict(transaction, information={
+                **transaction['information'], 'creditor_name': 'Supplier'})
             repeated = journal.create_import_statement(today, today)
             origins = journal.import_statement_transactions(
-                repeated, [transaction])
+                repeated, [enriched])
             self.assertEqual(origins, [])
             journal.finish_import_statement(repeated, origins)
             self.assertEqual(repeated.state, 'posted')
@@ -95,3 +97,15 @@ class TestStatementImport(unittest.TestCase):
             self.assertEqual(len(origins), 1)
             self.assertEqual(Origin.search_count([
                 ('entry_reference', '=', 'external-1')]), 2)
+
+            # New keys do not hide changed or missing original information.
+            for information in [
+                    {'remittance_information': 'Invoice 456',
+                        'creditor_name': 'Supplier'},
+                    {'creditor_name': 'Supplier'}]:
+                revised = journal.create_import_statement(today, today)
+                conflict, = journal.import_statement_transactions(revised,
+                    [dict(transaction, information=information)])
+                self.assertEqual(conflict.review_state, 'discrepancy')
+                self.assertIn(origin, conflict.review_origins)
+                journal.finish_import_statement(revised, [conflict])
