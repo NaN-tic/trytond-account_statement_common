@@ -44,6 +44,9 @@
             <label name="review_state"/>
             <field name="review_state"/>
             <button name="mark_reviewed"/>
+            <newline/>
+            <label name="entry_reference"/>
+            <field name="entry_reference" colspan="3"/>
             <field name="review_details" colspan="4"/>
             <field name="review_origins" colspan="4"/>
         </page>
