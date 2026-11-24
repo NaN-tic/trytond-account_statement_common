@@ -150,6 +150,22 @@ msgctxt "field:account.statement.line,analytic_accounts_size:"
 msgid "Analytic Accounts Size"
 msgstr "Tamaño de las cuentas analíticas"
 
+msgctxt "field:account.statement.line,invoice_currency:"
+msgid "Invoice Currency"
+msgstr "Moneda de la factura"
+
+msgctxt "field:account.statement.line,invoice_date:"
+msgid "Invoice Date"
+msgstr "Fecha de factura"
+
+msgctxt "field:account.statement.line,invoice_next_maturity:"
+msgid "Next Maturity Date"
+msgstr "Próximo vencimiento"
+
+msgctxt "field:account.statement.line,invoice_outstanding:"
+msgid "Outstanding Amount"
+msgstr "Importe pendiente"
+
 msgctxt "field:account.statement.line,maturity_date:"
 msgid "Maturity Date"
 msgstr "Fecha de vencimiento"
