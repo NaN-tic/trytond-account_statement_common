@@ -169,8 +169,15 @@ class Test(unittest.TestCase):
         statement_line.amount = Decimal('-60')
         statement_line.party = supplier
         assertEqual(statement_line.account, payable)
+        self.assertIsNone(statement_line.invoice_date)
+        self.assertIsNone(statement_line.invoice_next_maturity)
+        self.assertIsNone(statement_line.invoice_outstanding)
         statement_line.related_to = supplier_invoice
         self.assertEqual(statement_line.amount, Decimal('-50.00'))
+        self.assertEqual(statement_line.invoice_date, today)
+        self.assertEqual(statement_line.invoice_next_maturity, today)
+        self.assertEqual(statement_line.invoice_currency, supplier_invoice.currency)
+        self.assertEqual(statement_line.invoice_outstanding, Decimal('50.00'))
 
         # Validate statement
         with self.assertRaises(StatementValidateError):
@@ -217,3 +224,9 @@ class Test(unittest.TestCase):
         self.assertEqual(customer_credit_note.state, 'paid')
         supplier_invoice.reload()
         self.assertEqual(supplier_invoice.state, 'paid')
+        paid_line, = StatementLine.find([
+                ('related_to', '=', str(supplier_invoice)),
+                ])
+        self.assertEqual(paid_line.invoice_date, today)
+        self.assertIsNone(paid_line.invoice_next_maturity)
+        self.assertEqual(paid_line.invoice_outstanding, Decimal('0.00'))

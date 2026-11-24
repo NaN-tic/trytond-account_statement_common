@@ -7,6 +7,9 @@ this repository contains the full copyright notices and license terms. -->
     <field name="amount"/>
     <field name="party" expand="1"/>
     <field name="related_to" expand="1"/>
+    <field name="invoice_date" optional="1"/>
+    <field name="invoice_next_maturity" optional="1"/>
+    <field name="invoice_outstanding" optional="1"/>
     <field name="account" expand="1"/>
     <field name="description" expand="1"/>
     <field name="maturity_date" optional="0"/>

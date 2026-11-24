@@ -233,6 +233,15 @@ class Line(metaclass=PoolMeta):
         states={
             'readonly': Eval('origin_state') != 'registered',
             })
+    invoice_date = fields.Function(fields.Date("Invoice Date"),
+        'on_change_with_invoice_date')
+    invoice_next_maturity = fields.Function(fields.Date("Next Maturity Date"),
+        'on_change_with_invoice_next_maturity')
+    invoice_currency = fields.Function(fields.Many2One(
+        'currency.currency', "Invoice Currency"), 'on_change_with_invoice_currency')
+    invoice_outstanding = fields.Function(Monetary("Outstanding Amount",
+        currency='invoice_currency', digits='invoice_currency'),
+        'on_change_with_invoice_outstanding')
     account_required = fields.Function(fields.Boolean('Account Required'),
         'on_change_with_account_required')
 
@@ -380,6 +389,28 @@ class Line(metaclass=PoolMeta):
         related_to = getattr(self, 'related_to', None)
         if isinstance(related_to, MoveLine) and related_to.id >= 0:
             return related_to
+
+    @fields.depends(methods=['invoice'])
+    def on_change_with_invoice_date(self, name=None):
+        if self.invoice:
+            return self.invoice.invoice_date
+
+    @fields.depends(methods=['invoice'])
+    def on_change_with_invoice_next_maturity(self, name=None):
+        if self.invoice and self.invoice.amount_to_pay:
+            return min((line.maturity_date for line in self.invoice.lines_to_pay
+                    if line.maturity_date and not line.reconciliation),
+                default=None)
+
+    @fields.depends(methods=['invoice'])
+    def on_change_with_invoice_currency(self, name=None):
+        if self.invoice:
+            return self.invoice.currency
+
+    @fields.depends(methods=['invoice'])
+    def on_change_with_invoice_outstanding(self, name=None):
+        if self.invoice:
+            return self.invoice.amount_to_pay
 
     @move_line.setter
     def move_line(self, value):
