@@ -292,6 +292,7 @@ class Journal(metaclass=PoolMeta):
                 ])
         seen = set()
         created = []
+        unmatched_new = set()
         for incoming in downloaded:
             candidates = []
             exact = []
@@ -304,6 +305,9 @@ class Journal(metaclass=PoolMeta):
                             == origin.entry_reference)
                         or differences == ['entry_reference']):
                     candidates.append((origin, differences))
+            if review:
+                unmatched_new.difference_update(exact)
+                unmatched_new.difference_update(o for o, _ in candidates)
             if exact:
                 seen.update(o.id for o in exact)
                 seen.update(o.id for o, _ in candidates)
@@ -322,20 +326,58 @@ class Journal(metaclass=PoolMeta):
             Origin.save([incoming])
             self.set_number([incoming])
             created.append(incoming)
+            if review and not candidates:
+                unmatched_new.add(incoming)
             existing.append(incoming)
             seen.add(incoming.id)
             for origin, differences in candidates:
                 seen.add(origin.id)
                 self._link_review_origins(incoming, origin, differences)
-        for origin in existing:
-            if (review and date_from <= origin.date <= date_to
-                    and origin.id not in seen
-                    and origin.state != 'cancelled'
-                    and not (origin.review_state == 'reviewed'
-                        and origin.review_details)):
-                Origin.add_review_discrepancy(origin, gettext(
-                        'account_statement_common.msg_review_missing'))
+        if review:
+            missing = [o for o in existing if o.id not in seen
+                and date_from <= o.date <= date_to and o.state != 'cancelled'
+                and not (o.review_state == 'reviewed' and o.review_details)]
+            linked = self._link_rebooked_origins(missing, unmatched_new)
+            for origin in missing:
+                if origin not in linked:
+                    Origin.add_review_discrepancy(origin, gettext(
+                            'account_statement_common.msg_review_missing'))
         return created
+
+    def _link_rebooked_origins(self, missing, unmatched_new):
+        "Link only unambiguous changes of bank reference and booking date."
+        by_value_date = defaultdict(list)
+        matches = defaultdict(list)
+        counts = defaultdict(int)
+        for origins in (unmatched_new, missing):
+            for origin in origins:
+                info = dict(origin.information or {})
+                if not origin.entry_reference or not info.get('value_date'):
+                    continue
+                try:
+                    booking = datetime.strptime(
+                        info.pop('booking_date'), '%Y-%m-%d').date()
+                except (KeyError, TypeError, ValueError):
+                    continue
+                key = (info['value_date'], origin.amount, origin.currency,
+                    origin.description, origin.balance)
+                if origins is unmatched_new:
+                    by_value_date[key].append((origin, booking, info))
+                    continue
+                for new, new_booking, new_info in by_value_date.get(key, []):
+                    if (0 < abs((new_booking - booking).days) <= 2
+                            and origin.entry_reference != new.entry_reference
+                            and info == new_info):
+                        matches[origin].append(new)
+                        counts[new] += 1
+        linked = set()
+        for origin, candidates in matches.items():
+            if len(candidates) == 1 and counts[candidates[0]] == 1:
+                new, = candidates
+                self._link_review_origins(new, origin,
+                    origin.review_differences(new))
+                linked.add(origin)
+        return linked
 
     def _link_review_origins(self, first, second, differences):
         Origin = Pool().get('account.statement.origin')
