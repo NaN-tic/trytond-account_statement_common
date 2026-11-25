@@ -1,0 +1,1043 @@
+#
+msgid ""
+msgstr ""
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:account.invoice,paid_directly:"
+msgid "Has Payed directly"
+msgstr "បានបង់ដោយផ្ទាល់"
+
+msgctxt "field:account.move,allow_button_draft:"
+msgid "Allow Button Draft Move"
+msgstr "អនុញ្ញាតឱ្យប្រើប៊ូតុងកំណត់កំណត់ត្រាគណនេយ្យជាសេចក្តីព្រាង"
+
+msgctxt "field:account.move,allow_draft:"
+msgid "Allow Draft Move"
+msgstr "អនុញ្ញាតឱ្យកំណត់កំណត់ត្រាគណនេយ្យជាសេចក្តីព្រាង"
+
+msgctxt "field:account.move.line,debit_credit_balance:"
+msgid "Debit-Credit Balance"
+msgstr "សមតុល្យឥណពន្ធ-ឥណទាន"
+
+msgctxt "field:account.move.line,payment_date:"
+msgid "Payment Date"
+msgstr "កាលបរិច្ឆេទទូទាត់"
+
+msgctxt "field:account.move.line,payment_group:"
+msgid "Payment Group"
+msgstr "ក្រុមទូទាត់"
+
+msgctxt "field:account.statement,end_date:"
+msgid "End Date"
+msgstr "កាលបរិច្ឆេទបញ្ចប់"
+
+msgctxt "field:account.statement,start_date:"
+msgid "Start Date"
+msgstr "កាលបរិច្ឆេទចាប់ផ្តើម"
+
+msgctxt "field:account.statement.journal,account_statement_origin_sequence:"
+msgid "Account Statement Origin Sequence"
+msgstr "លំដាប់លេខប្រភពរបាយការណ៍គណនី"
+
+msgctxt "field:account.statement.journal,max_amount_tolerance:"
+msgid "Max Amount tolerance"
+msgstr "ចំនួនទឹកប្រាក់ខុសគ្នាអតិបរមាដែលអនុញ្ញាត"
+
+msgctxt "field:account.statement.journal,one_move_per_origin:"
+msgid "One Move per Origin"
+msgstr "កំណត់ត្រាគណនេយ្យមួយក្នុងមួយប្រភព"
+
+msgctxt "field:account.statement.journal,search_suggestions:"
+msgid "Search Suggestions"
+msgstr "ស្វែងរកសំណើ"
+
+msgctxt "field:account.statement.journal,weights:"
+msgid "Weights"
+msgstr "ទម្ងន់"
+
+msgctxt "field:account.statement.journal.weight,journal:"
+msgid "Journal"
+msgstr "ទិនានុប្បវត្តិ"
+
+msgctxt "field:account.statement.journal.weight,type:"
+msgid "Type"
+msgstr "ប្រភេទ"
+
+msgctxt "field:account.statement.journal.weight,weight:"
+msgid "Weight"
+msgstr "ទម្ងន់"
+
+msgctxt "field:account.statement.line,account_required:"
+msgid "Account Required"
+msgstr "តម្រូវឱ្យមានគណនី"
+
+msgctxt "field:account.statement.line,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "គណនីវិភាគ"
+
+msgctxt "field:account.statement.line,analytic_accounts_size:"
+msgid "Analytic Accounts Size"
+msgstr "ចំនួនគណនីវិភាគ"
+
+msgctxt "field:account.statement.line,maturity_date:"
+msgid "Maturity Date"
+msgstr "កាលបរិច្ឆេទដល់កំណត់"
+
+msgctxt "field:account.statement.line,origin_state:"
+msgid "Origin State"
+msgstr "ស្ថានភាពប្រភព"
+
+msgctxt "field:account.statement.line,show_paid_invoices:"
+msgid "Show Paid Invoices"
+msgstr "បង្ហាញវិក្កយបត្រដែលបានបង់"
+
+msgctxt "field:account.statement.line,suggested_line:"
+msgid "Suggested Line"
+msgstr "បន្ទាត់ដែលបានស្នើ"
+
+msgctxt "field:account.statement.origin,balance:"
+msgid "Balance"
+msgstr "សមតុល្យ"
+
+msgctxt "field:account.statement.origin,entry_reference:"
+msgid "Entry Reference"
+msgstr "ឯកសារយោងកំណត់ត្រា"
+
+msgctxt "field:account.statement.origin,journal:"
+msgid "Journal"
+msgstr "ទិនានុប្បវត្តិ"
+
+msgctxt "field:account.statement.origin,remittance_information:"
+msgid "Remittance Information"
+msgstr "ព័ត៌មានផ្ទេរប្រាក់"
+
+msgctxt "field:account.statement.origin,state:"
+msgid "State"
+msgstr "ស្ថានភាព"
+
+msgctxt "field:account.statement.origin,suggested_lines:"
+msgid "Suggested Lines"
+msgstr "បន្ទាត់ដែលបានស្នើ"
+
+msgctxt "field:account.statement.origin,suggested_lines_tree:"
+msgid "Suggested Lines"
+msgstr "បន្ទាត់ដែលបានស្នើ"
+
+msgctxt "field:account.statement.origin,synchronized:"
+msgid "Synchronized"
+msgstr "បានធ្វើសមកាលកម្ម"
+
+msgctxt "field:account.statement.origin.create_line.start,account:"
+msgid "Account"
+msgstr "គណនី"
+
+msgctxt "field:account.statement.origin.create_line.start,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "គណនីវិភាគ"
+
+msgctxt "field:account.statement.origin.create_line.start,company:"
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgctxt "field:account.statement.origin.create_line.start,description:"
+msgid "Description"
+msgstr "សេចក្តីពិពណ៌នា"
+
+msgctxt "field:account.statement.origin.create_line.start,party:"
+msgid "Party"
+msgstr "ភាគី"
+
+msgctxt "field:account.statement.origin.create_line.start,party_required:"
+msgid "Party Required"
+msgstr "តម្រូវឱ្យមានភាគី"
+
+msgctxt "field:account.statement.origin.create_line.start,post_origin:"
+msgid "Post Origins"
+msgstr "កត់ត្រាប្រភពក្នុងបញ្ជី"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,amount:"
+msgid "Amount"
+msgstr "ចំនួនទឹកប្រាក់"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,company:"
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,currency:"
+msgid "Currency"
+msgstr "រូបិយប័ណ្ណ"
+
+msgctxt "field:account.statement.origin.multiple.invoices.start,invoices:"
+msgid "Invoices"
+msgstr "វិក្កយបត្រ"
+
+msgctxt ""
+"field:account.statement.origin.multiple.invoices.start,pending_amount:"
+msgid "Pending Amount"
+msgstr "ចំនួនទឹកប្រាក់រង់ចាំ"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,amount:"
+msgid "Amount"
+msgstr "ចំនួនទឹកប្រាក់"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,company:"
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,currency:"
+msgid "Currency"
+msgstr "រូបិយប័ណ្ណ"
+
+msgctxt "field:account.statement.origin.multiple.move_lines.start,move_lines:"
+msgid "Move Lines"
+msgstr "បន្ទាត់កំណត់ត្រាគណនេយ្យ"
+
+msgctxt ""
+"field:account.statement.origin.multiple.move_lines.start,pending_amount:"
+msgid "Pending Amount"
+msgstr "ចំនួនទឹកប្រាក់រង់ចាំ"
+
+msgctxt ""
+"field:account.statement.origin.multiple.move_lines.start,second_currency:"
+msgid "Second Currency"
+msgstr "រូបិយប័ណ្ណទីពីរ"
+
+msgctxt "field:account.statement.origin.suggested.line,account:"
+msgid "Account"
+msgstr "គណនី"
+
+msgctxt "field:account.statement.origin.suggested.line,amount:"
+msgid "Amount"
+msgstr "ចំនួនទឹកប្រាក់"
+
+msgctxt "field:account.statement.origin.suggested.line,amount_second_currency:"
+msgid "Amount Second Currency"
+msgstr "ចំនួនទឹកប្រាក់ជារូបិយប័ណ្ណទីពីរ"
+
+msgctxt "field:account.statement.origin.suggested.line,analytic_accounts:"
+msgid "Analytic Accounts"
+msgstr "គណនីវិភាគ"
+
+msgctxt "field:account.statement.origin.suggested.line,analytic_accounts_size:"
+msgid "Analytic Accounts Size"
+msgstr "ចំនួនគណនីវិភាគ"
+
+msgctxt "field:account.statement.origin.suggested.line,based_on:"
+msgid "Based On"
+msgstr "ផ្អែកលើ"
+
+msgctxt "field:account.statement.origin.suggested.line,childs:"
+msgid "Children"
+msgstr "កូន"
+
+msgctxt "field:account.statement.origin.suggested.line,company:"
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgctxt "field:account.statement.origin.suggested.line,company_currency:"
+msgid "Company Currency"
+msgstr "រូបិយប័ណ្ណក្រុមហ៊ុន"
+
+msgctxt "field:account.statement.origin.suggested.line,currency:"
+msgid "Currency"
+msgstr "រូបិយប័ណ្ណ"
+
+msgctxt "field:account.statement.origin.suggested.line,date:"
+msgid "Date"
+msgstr "កាលបរិច្ឆេទ"
+
+msgctxt "field:account.statement.origin.suggested.line,origin:"
+msgid "Origin"
+msgstr "ប្រភពដើម"
+
+msgctxt "field:account.statement.origin.suggested.line,parent:"
+msgid "Parent"
+msgstr "គំរូមេ"
+
+msgctxt "field:account.statement.origin.suggested.line,party:"
+msgid "Party"
+msgstr "ភាគី"
+
+msgctxt "field:account.statement.origin.suggested.line,related_to:"
+msgid "Related To"
+msgstr "ពាក់ព័ន្ធនឹង"
+
+msgctxt "field:account.statement.origin.suggested.line,second_currency:"
+msgid "Second Currency"
+msgstr "រូបិយប័ណ្ណទីពីរ"
+
+msgctxt "field:account.statement.origin.suggested.line,state:"
+msgid "State"
+msgstr "ស្ថានភាព"
+
+msgctxt "field:account.statement.origin.suggested.line,type:"
+msgid "Type"
+msgstr "ប្រភេទ"
+
+msgctxt "field:account.statement.origin.suggested.line,weight:"
+msgid "Weight"
+msgstr "ទម្ងន់"
+
+msgctxt "field:statement.link.invoice.start,company:"
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgctxt "field:statement.link.invoice.start,currency:"
+msgid "Currency"
+msgstr "រូបិយប័ណ្ណ"
+
+msgctxt "field:statement.link.invoice.start,diff_amount:"
+msgid "Difference Amount"
+msgstr "ចំនួនទឹកប្រាក់ខុសគ្នា"
+
+msgctxt "field:statement.link.invoice.start,invoice:"
+msgid "Invoice"
+msgstr "វិក្កយបត្រ"
+
+msgctxt "field:statement.link.invoice.start,invoice_amount:"
+msgid "Invoice Amount"
+msgstr "ចំនួនទឹកប្រាក់វិក្កយបត្រ"
+
+msgctxt "field:statement.link.invoice.start,origins_amount:"
+msgid "Origins Amount"
+msgstr "ចំនួនទឹកប្រាក់នៃប្រភព"
+
+msgctxt "field:statement.link.invoice.start,post_origin:"
+msgid "Post Origins"
+msgstr "កត់ត្រាប្រភពក្នុងបញ្ជី"
+
+msgctxt "help:account.invoice,paid_directly:"
+msgid "The invoice has payed with the 'PAY' button"
+msgstr "វិក្កយបត្រត្រូវបានបង់ដោយប្រើប៊ូតុង «ទូទាត់» (PAY)។"
+
+msgctxt "help:account.statement.journal,max_amount_tolerance:"
+msgid ""
+"In some cases, it is possible to have amounts that vary in X. This field if "
+"set is the maximum of the allowed tolerance. That is, if value is set when "
+"searching for similarities it will look for equal amounts or with +X, value "
+"that has been set here."
+msgstr ""
+"ក្នុងករណីខ្លះ ចំនួនទឹកប្រាក់អាចខុសគ្នាចំនួន X។ "
+"វាលនេះកំណត់កម្រិតខុសគ្នាអតិបរមាដែលអនុញ្ញាត។ ពេលស្វែងរកចំនួនប្រហាក់ប្រហែល "
+"ប្រព័ន្ធនឹងរកចំនួនស្មើគ្នា ឬចំនួនដែលខុសគ្នាមិនលើស +X "
+"តាមតម្លៃដែលបានកំណត់នៅទីនេះ។"
+
+msgctxt "help:account.statement.journal,one_move_per_origin:"
+msgid ""
+"Check if want to create only one move per origin when post it even it has "
+"more than one line. Else it create one move for eaach line."
+msgstr ""
+"ធីកដើម្បីបង្កើតកំណត់ត្រាគណនេយ្យតែមួយសម្រាប់ប្រភពនីមួយៗពេលកត់ក្នុងបញ្ជី "
+"សូម្បីតែប្រភពនោះមានបន្ទាត់ច្រើន។ បើមិនធីក "
+"ប្រព័ន្ធនឹងបង្កើតមួយសម្រាប់បន្ទាត់នីមួយៗ។"
+
+msgctxt "help:account.statement.journal,search_suggestions:"
+msgid "Check if want to search automatically suggestions"
+msgstr "ធីកដើម្បីស្វែងរកសំណើដោយស្វ័យប្រវត្តិ"
+
+msgctxt "help:account.statement.line,maturity_date:"
+msgid "Set a date to make the line payable or receivable."
+msgstr "កំណត់កាលបរិច្ឆេទដែលបន្ទាត់នេះត្រូវបង់ ឬត្រូវទទួល។"
+
+msgctxt "model:account.statement.journal.weight,string:"
+msgid "Account Statement Journal Weight"
+msgstr "ទម្ងន់ទិនានុប្បវត្តិរបាយការណ៍គណនី"
+
+msgctxt "model:account.statement.origin.create_line.start,string:"
+msgid "Account Statement Origin Create Line Start"
+msgstr "ចាប់ផ្ដើមបង្កើតបន្ទាត់ពីប្រភពរបាយការណ៍គណនី"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_balance_after_transaction"
+msgid "Balance After Transaction"
+msgstr "សមតុល្យក្រោយប្រតិបត្តិការ"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_code"
+msgid "Bank Transaction Code"
+msgstr "កូដប្រតិបត្តិការធនាគារ"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_description"
+msgid "Bank Transaction Code Description"
+msgstr "សេចក្តីពិពណ៌នាកូដប្រតិបត្តិការធនាគារ"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_bank_transaction_code_sub_code"
+msgid "Bank Transaction Code Sub Code"
+msgstr "កូដរងប្រតិបត្តិការធនាគារ"
+
+msgctxt "model:account.statement.origin.information,string:eb_booking_date"
+msgid "Booking Date"
+msgstr "កាលបរិច្ឆេទកត់ត្រា"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_credit_debit_indicator"
+msgid "Credit Debit Indicator"
+msgstr "សូចនាករឥណទាន ឬឥណពន្ធ"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_additional_identification"
+msgid "Creditor Account Additional Identification"
+msgstr "អត្តសញ្ញាណបន្ថែមនៃគណនីម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_iban"
+msgid "Creditor Account IBAN"
+msgstr "IBAN នៃគណនីម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_account_other"
+msgid "Creditor Account Other"
+msgstr "អត្តសញ្ញាណផ្សេងទៀតនៃគណនីម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_agent_bic_fi"
+msgid "Creditor Agent BIC FI"
+msgstr "លេខកូដ BIC FI របស់ស្ថាប័នហិរញ្ញវត្ថុរបស់ម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_agent_name"
+msgid "Creditor Agent Name"
+msgstr "ឈ្មោះស្ថាប័នហិរញ្ញវត្ថុរបស់ម្ចាស់បំណុល"
+
+msgctxt "model:account.statement.origin.information,string:eb_creditor_name"
+msgid "Creditor Name"
+msgstr "ឈ្មោះម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_creditor_postal_address"
+msgid "Creditor Postal Address"
+msgstr "អាសយដ្ឋានប្រៃសណីយ៍របស់ម្ចាស់បំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_additional_identification"
+msgid "Debtor Account Additional Identification"
+msgstr "អត្តសញ្ញាណបន្ថែមនៃគណនីកូនបំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_iban"
+msgid "Debtor Account IBAN"
+msgstr "IBAN នៃគណនីកូនបំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_account_other"
+msgid "Debtor Account Other"
+msgstr "អត្តសញ្ញាណផ្សេងទៀតនៃគណនីកូនបំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_agent_bic_fi"
+msgid "Debtor Agent BIC FI"
+msgstr "លេខកូដ BIC FI របស់ស្ថាប័នហិរញ្ញវត្ថុរបស់កូនបំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_agent_name"
+msgid "Debtor Agent Name"
+msgstr "ឈ្មោះស្ថាប័នហិរញ្ញវត្ថុរបស់កូនបំណុល"
+
+msgctxt "model:account.statement.origin.information,string:eb_debtor_name"
+msgid "Debtor Name"
+msgstr "ឈ្មោះកូនបំណុល"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_debtor_postal_address"
+msgid "Debtor Postal Address"
+msgstr "អាសយដ្ឋានប្រៃសណីយ៍របស់កូនបំណុល"
+
+msgctxt "model:account.statement.origin.information,string:eb_exchange_rate"
+msgid "Exchange Rate"
+msgstr "អត្រាប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_contract_identification"
+msgid "Exchange Rate Contract Identification"
+msgstr "អត្តសញ្ញាណកិច្ចសន្យាអត្រាប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_exchange_rate"
+msgid "Exchange Rate"
+msgstr "អត្រាប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_instructed_amount"
+msgid "Exchange Rate Instructed Amount"
+msgstr "ចំនួនទឹកប្រាក់តាមសេចក្តីណែនាំសម្រាប់ការប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_rate_type"
+msgid "Exchange Rate Type"
+msgstr "ប្រភេទអត្រាប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_exchange_rate_unit_currency"
+msgid "Exchange Rate Unit Currency"
+msgstr "រូបិយប័ណ្ណគោលនៃអត្រាប្តូរប្រាក់"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_merchant_category_code"
+msgid "Merchant Category Code"
+msgstr "កូដប្រភេទអាជីវករ"
+
+msgctxt "model:account.statement.origin.information,string:eb_note"
+msgid "Note"
+msgstr "កំណត់ចំណាំ"
+
+msgctxt "model:account.statement.origin.information,string:eb_reference_number"
+msgid "Reference Number"
+msgstr "លេខយោង"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_reference_number_schema"
+msgid "Reference Number Schema"
+msgstr "គ្រោងលេខយោង"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_remittance_information"
+msgid "Remittance Information"
+msgstr "ព័ត៌មានផ្ទេរប្រាក់"
+
+msgctxt "model:account.statement.origin.information,string:eb_status"
+msgid "Status"
+msgstr "ស្ថានភាព"
+
+msgctxt ""
+"model:account.statement.origin.information,string:eb_transaction_amount"
+msgid "Transaction Amount"
+msgstr "ចំនួនទឹកប្រាក់ប្រតិបត្តិការ"
+
+msgctxt "model:account.statement.origin.information,string:eb_transaction_date"
+msgid "Transaction Date"
+msgstr "កាលបរិច្ឆេទប្រតិបត្តិការ"
+
+msgctxt "model:account.statement.origin.information,string:eb_value_date"
+msgid "Value Date"
+msgstr "កាលបរិច្ឆេទមានប្រសិទ្ធភាពសម្រាប់ការទូទាត់"
+
+msgctxt "model:account.statement.origin.multiple.invoices.start,string:"
+msgid "Account Statement Origin Multiple Invoices Start"
+msgstr "ចាប់ផ្ដើមបន្ថែមវិក្កយបត្រច្រើនពីប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:account.statement.origin.multiple.move_lines.start,string:"
+msgid "Account Statement Origin Multiple Move Lines Start"
+msgstr "ចាប់ផ្ដើមបន្ថែមបន្ទាត់កំណត់ត្រាច្រើនពីប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:account.statement.origin.suggested.line,string:"
+msgid "Account Statement Origin Suggested Line"
+msgstr "បន្ទាត់ដែលបានស្នើសម្រាប់ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:ir.action,name:act_account_statement_origin_suggested_line_view"
+msgid "Account Statement Origin Suggested Line"
+msgstr "បន្ទាត់ដែលបានស្នើសម្រាប់ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:ir.action,name:act_origin_move_lines_form"
+msgid "Move Lines"
+msgstr "បន្ទាត់កំណត់ត្រាគណនេយ្យ"
+
+msgctxt "model:ir.action,name:act_origin_moves_form"
+msgid "Moves"
+msgstr "កំណត់ត្រាគណនេយ្យ"
+
+msgctxt "model:ir.action,name:act_statement_origin_form"
+msgid "Statement Origins"
+msgstr "ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:ir.action,name:create_line"
+msgid "Create Lines"
+msgstr "បង្កើតបន្ទាត់"
+
+msgctxt "model:ir.action,name:wizard_link_invoice"
+msgid "Link Invoice"
+msgstr "ភ្ជាប់វិក្កយបត្រ"
+
+msgctxt "model:ir.action,name:wizard_multiple_invoices"
+msgid "Add Multiple Invoices"
+msgstr "បន្ថែមវិក្កយបត្រច្រើន"
+
+msgctxt "model:ir.action,name:wizard_multiple_move_lines"
+msgid "Add Multiple Move Lines"
+msgstr "បន្ថែមបន្ទាត់កំណត់ត្រាគណនេយ្យច្រើន"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_form_domain_registered"
+msgid "Registered"
+msgstr "បានចុះបញ្ជី"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_all"
+msgid "All"
+msgstr "ទាំងអស់"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_posted"
+msgid "Posted"
+msgstr "បានកត់ត្រាក្នុងបញ្ជីគណនេយ្យ"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_statement_origin_form_domain_registered"
+msgid "Registered"
+msgstr "បានចុះបញ្ជី"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_find_same_related_to"
+msgid ""
+"You are post for two or more origins that are linked to lines with the same "
+"related (%(related_to)s) record and sum more than the related to amount. "
+"Please post for only one origin."
+msgstr ""
+"អ្នកកំពុងកត់ត្រាក្នុងបញ្ជីសម្រាប់ប្រភពពីរ "
+"ឬច្រើនដែលភ្ជាប់ទៅបន្ទាត់នៃកំណត់ត្រាពាក់ព័ន្ធ (%(related_to)s) ដូចគ្នា "
+"និងមានចំនួនសរុបលើសចំនួនទឹកប្រាក់ពាក់ព័ន្ធ។ "
+"សូមកត់ត្រាក្នុងបញ្ជីសម្រាប់ប្រភពតែមួយ។"
+
+msgctxt "model:ir.message,text:msg_journal_weight_unique"
+msgid "Weight Type must be unique per journal."
+msgstr "ប្រភេទទម្ងន់ត្រូវមានតែមួយគត់ក្នុងទិនានុប្បវត្តិនីមួយៗ។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_not_enough_amount_to_pay"
+msgid ""
+"The invoice has not enougth amount to pay. It's %(amount_to_pay)s € and the "
+"origins selected sum %(origins_amount)s €."
+msgstr ""
+"ចំនួនទឹកប្រាក់ត្រូវបង់នៃវិក្កយបត្រមិនគ្រប់គ្រាន់ទេ។ ចំនួនត្រូវបង់គឺ "
+"%(amount_to_pay)s € ហើយប្រភពដែលបានជ្រើសរើសសរុប %(origins_amount)s €។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_not_use_blocked_account_move"
+msgid ""
+"The suggestion you are trying to use adds move line(s) \"%(move_lines)s\" "
+"whose payments are blocked. Are you sure you want to continue?"
+msgstr ""
+"សំណើដែលអ្នកកំពុងប្រើបន្ថែមបន្ទាត់កំណត់ត្រាគណនេយ្យ «%(move_lines)s» "
+"ដែលការទូទាត់ត្រូវបានរារាំង។ តើអ្នកពិតជាចង់បន្តឬទេ?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_line_with_move"
+msgid ""
+"The line has move \"%(move)s\" related to it. Cancel or delete the line will "
+"delete that move. Do you want to continue?"
+msgstr ""
+"បន្ទាត់នេះភ្ជាប់ទៅកំណត់ត្រាគណនេយ្យ «%(move)s»។ ការបោះបង់ "
+"ឬលុបបន្ទាត់នឹងលុបកំណត់ត្រានោះ។ តើអ្នកចង់បន្តឬទេ?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_lines_with_move"
+msgid ""
+"The lines \"%(lines)s\" has moves related to it. Cancel or delete lines will "
+"delete those moves. Do you want to continue?"
+msgstr ""
+"បន្ទាត់ «%(lines)s» ភ្ជាប់ទៅកំណត់ត្រាគណនេយ្យ។ ការបោះបង់ "
+"ឬលុបបន្ទាត់នឹងលុបកំណត់ត្រាទាំងនោះ។ តើអ្នកចង់បន្តឬទេ?"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origin_pending_amount"
+msgid ""
+"The origin could not be reconciled because the amount of the lines "
+"\"%(line_amount)s\" and the amount of the origin \"%(origin_amount)s\" "
+"differ."
+msgstr ""
+"មិនអាចផ្ទៀងផ្ទាត់សមតុល្យប្រភពបានទេ ព្រោះចំនួនទឹកប្រាក់នៃបន្ទាត់ "
+"«%(line_amount)s» ខុសពីចំនួនទឹកប្រាក់នៃប្រភព «%(origin_amount)s»។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_origins_with_lines"
+msgid ""
+"The origins \"%(origins)s\" have lines. If you want to use them to pay an "
+"Invoice, the related lines will be removed."
+msgstr ""
+"ប្រភព «%(origins)s» មានបន្ទាត់រួចហើយ។ បើប្រើវាដើម្បីបង់វិក្កយបត្រ "
+"ប្រព័ន្ធនឹងលុបបន្ទាត់ពាក់ព័ន្ធ។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_repeated_related_to_used"
+msgid ""
+"The related \"%(related_to)s\" is usde in a line of the posted origin "
+"\"%(origin)s.\""
+msgstr ""
+"ធាតុពាក់ព័ន្ធ «%(related_to)s» "
+"ត្រូវបានប្រើក្នុងបន្ទាត់របស់ប្រភពដែលបានកត់ក្នុងបញ្ជី «%(origin)s»។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_statement_line_delete"
+msgid ""
+"It is not possible to remove the line \"%(line)s\", because the related "
+"statement \"%(statement)s\" is validated or posted."
+msgstr ""
+"មិនអាចលុបបន្ទាត់ «%(line)s» បានទេ ព្រោះរបាយការណ៍គណនីពាក់ព័ន្ធ «%(statement)s»"
+" ត្រូវបានផ្ទៀងផ្ទាត់ ឬកត់ក្នុងបញ្ជីរួចហើយ។"
+
+#, python-format
+msgctxt "model:ir.message,text:msg_suggested_line_related_to_statement_line"
+msgid ""
+"There is some suggested line relate to the statement lines of the origins "
+"\"%(origins_name)s\". Befeore make a new search, remove the statement line."
+msgstr ""
+"មានបន្ទាត់ដែលបានស្នើពាក់ព័ន្ធនឹងបន្ទាត់របាយការណ៍គណនីរបស់ប្រភព "
+"«%(origins_name)s»។ មុននឹងស្វែងរកម្តងទៀត សូមលុបបន្ទាត់របាយការណ៍នោះ។"
+
+msgctxt "model:ir.model.button,string:evaluate_weights_button"
+msgid "Evaluate Weights"
+msgstr "វាយតម្លៃទម្ងន់"
+
+msgctxt "model:ir.model.button,string:statement_line_add_pending_button"
+msgid "Add Pending"
+msgstr "បន្ថែមធាតុដែលកំពុងរង់ចាំ"
+
+msgctxt "model:ir.model.button,string:statement_line_multiple_invoices_button"
+msgid "Add Invoices"
+msgstr "បន្ថែមវិក្កយបត្រ"
+
+msgctxt ""
+"model:ir.model.button,string:statement_line_multiple_move_lines_button"
+msgid "Add Move Lines"
+msgstr "បន្ថែមបន្ទាត់កំណត់ត្រាគណនេយ្យ"
+
+msgctxt "model:ir.model.button,string:statement_origin_cancel_button"
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgctxt "model:ir.model.button,string:statement_origin_link_invoice_button"
+msgid "Link Invoice"
+msgstr "ភ្ជាប់វិក្កយបត្រ"
+
+msgctxt "model:ir.model.button,string:statement_origin_post_button"
+msgid "Post"
+msgstr "កត់ត្រាក្នុងបញ្ជីគណនេយ្យ"
+
+msgctxt "model:ir.model.button,string:statement_origin_register_button"
+msgid "Register"
+msgstr "ចុះបញ្ជី"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_search_suggestions_button"
+msgid "Search Suggestions"
+msgstr "ស្វែងរកសំណើ"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_suggested_line_propose_button"
+msgid "Propose"
+msgstr "ស្នើ"
+
+msgctxt ""
+"model:ir.model.button,string:statement_origin_suggested_line_use_button"
+msgid "Use"
+msgstr "ប្រើ"
+
+msgctxt "model:ir.model.button,string:statement_register_button"
+msgid "Register"
+msgstr "ចុះបញ្ជី"
+
+msgctxt "model:ir.sequence,name:sequence_account_statement_origin"
+msgid "Account Statement Origin"
+msgstr "ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_account_statement_origin"
+msgid "Account Statement Origin"
+msgstr "ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:ir.ui.menu,name:menu_statement_form"
+msgid "Statement Origins"
+msgstr "ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:statement.link.invoice.start,string:"
+msgid "Statement Link Invoice Start"
+msgstr "ចាប់ផ្ដើមភ្ជាប់វិក្កយបត្រទៅរបាយការណ៍គណនី"
+
+msgctxt "report:account.statement:"
+msgid "#"
+msgstr "#"
+
+msgctxt "report:account.statement:"
+msgid "Amount"
+msgstr "ចំនួនទឹកប្រាក់"
+
+msgctxt "report:account.statement:"
+msgid "Cancelled"
+msgstr "បានបោះបង់"
+
+msgctxt "report:account.statement:"
+msgid "Date"
+msgstr "កាលបរិច្ឆេទ"
+
+msgctxt "report:account.statement:"
+msgid "Date:"
+msgstr "កាលបរិច្ឆេទ៖"
+
+msgctxt "report:account.statement:"
+msgid "Description"
+msgstr "សេចក្តីពិពណ៌នា"
+
+msgctxt "report:account.statement:"
+msgid "Draft"
+msgstr "សេចក្តីព្រាង"
+
+msgctxt "report:account.statement:"
+msgid "Journal:"
+msgstr "ទិនានុប្បវត្តិ៖"
+
+msgctxt "report:account.statement:"
+msgid "Number"
+msgstr "លេខ"
+
+msgctxt "report:account.statement:"
+msgid "Party"
+msgstr "ភាគី"
+
+msgctxt "report:account.statement:"
+msgid "Statement"
+msgstr "របាយការណ៍"
+
+msgctxt "report:account.statement:"
+msgid "Total"
+msgstr "សរុប"
+
+msgctxt "selection:account.statement,state:"
+msgid "Registered"
+msgstr "បានចុះបញ្ជី"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Based On Match"
+msgstr "ភាពត្រូវគ្នានៃមូលដ្ឋាន"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Combination Escape Threshold"
+msgstr "កម្រិតបញ្ឈប់ការស្វែងរកបន្សំ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Date Match"
+msgstr "ភាពត្រូវគ្នានៃកាលបរិច្ឆេទ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Escape Threshold"
+msgstr "កម្រិតបញ្ឈប់ការស្វែងរក"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Max Suggestion Count"
+msgstr "ចំនួនសំណើអតិបរមា"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Move Line Max Count"
+msgstr "ចំនួនអតិបរមានៃបន្ទាត់កំណត់ត្រាគណនេយ្យ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Number Match"
+msgstr "ភាពត្រូវគ្នានៃលេខ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Delta Days"
+msgstr "គម្លាតថ្ងៃនៃប្រភព"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Similarity"
+msgstr "ភាពស្រដៀងគ្នានៃប្រភព"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Origin Similarity Threshold"
+msgstr "កម្រិតភាពស្រដៀងគ្នានៃប្រភព"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Party Match"
+msgstr "ភាពត្រូវគ្នានៃភាគី"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Party Uniformity"
+msgstr "ភាពដូចគ្នានៃភាគី"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Target Combinations"
+msgstr "បន្សំគោលដៅ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Balance"
+msgstr "ប្រភេទសមតុល្យ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Balance Invoice"
+msgstr "ប្រភេទសមតុល្យវិក្កយបត្រ"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Combination All"
+msgstr "ប្រភេទបន្សំទាំងអស់"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Combination Party"
+msgstr "ប្រភេទបន្សំតាមភាគី"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Origin"
+msgstr "ប្រភេទប្រភព"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Payment"
+msgstr "ប្រភេទការទូទាត់"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Payment Group"
+msgstr "ប្រភេទក្រុមការទូទាត់"
+
+msgctxt "selection:account.statement.journal.weight,type:"
+msgid "Type Sale"
+msgstr "ប្រភេទការលក់"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Cancelled"
+msgstr "បានបោះបង់"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Posted"
+msgstr "បានកត់ត្រាក្នុងបញ្ជីគណនេយ្យ"
+
+msgctxt "selection:account.statement.origin,state:"
+msgid "Registered"
+msgstr "បានចុះបញ្ជី"
+
+msgctxt "selection:account.statement.origin.suggested.line,state:"
+msgid "Proposed"
+msgstr "បានស្នើ"
+
+msgctxt "selection:account.statement.origin.suggested.line,state:"
+msgid "Used"
+msgstr "បានប្រើ"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Balance"
+msgstr "សមតុល្យ"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Balance Invoices"
+msgstr "ផ្ទៀងផ្ទាត់សមតុល្យវិក្កយបត្រ"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Combine All"
+msgstr "បញ្ចូលគ្នាទាំងអស់"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Combine Parties"
+msgstr "បញ្ចូលភាគីគ្នា"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Origin"
+msgstr "ប្រភពដើម"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Payment"
+msgstr "ការទូទាត់"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Payment Group"
+msgstr "ក្រុមទូទាត់"
+
+msgctxt "selection:account.statement.origin.suggested.line,type:"
+msgid "Sale"
+msgstr "បញ្ជាលក់"
+
+msgctxt "view:account.invoice:"
+msgid "Tax"
+msgstr "ពន្ធ"
+
+msgctxt "view:account.invoice:"
+msgid "Total"
+msgstr "សរុប"
+
+msgctxt "view:account.invoice:"
+msgid "Untaxed"
+msgstr "មិនរួមបញ្ចូលពន្ធ"
+
+msgctxt "view:account.move.line:"
+msgid "Total credit"
+msgstr "ឥណទានសរុប"
+
+msgctxt "view:account.move.line:"
+msgid "Total debit"
+msgstr "ឥណពន្ធសរុប"
+
+msgctxt "view:account.statement:"
+msgid "End Time"
+msgstr "ពេលវេលាបញ្ចប់"
+
+msgctxt "view:account.statement:"
+msgid "Start Time"
+msgstr "ពេលវេលាចាប់ផ្ដើម"
+
+msgctxt ""
+"wizard_button:account.statement.origin.create_line,start,create_lines:"
+msgid "OK"
+msgstr "យល់ព្រម"
+
+msgctxt "wizard_button:account.statement.origin.create_line,start,end:"
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgctxt ""
+"wizard_button:account.statement.origin.multiple.invoices,start,create_lines:"
+msgid "OK"
+msgstr "យល់ព្រម"
+
+msgctxt "wizard_button:account.statement.origin.multiple.invoices,start,end:"
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgctxt ""
+"wizard_button:account.statement.origin.multiple.move_lines,start,create_lines:"
+msgid "OK"
+msgstr "យល់ព្រម"
+
+msgctxt "wizard_button:account.statement.origin.multiple.move_lines,start,end:"
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgctxt "wizard_button:statement.link.invoice,start,apply:"
+msgid "Apply"
+msgstr "អនុវត្ត"
+
+msgctxt "wizard_button:statement.link.invoice,start,end:"
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgctxt "field:account.statement.journal,similarity_threshold:"
+msgid "Similarity Threshold"
+msgstr "កម្រិតភាពស្រដៀងគ្នា"
+
+msgctxt "field:account.statement.journal,statement_provider:"
+msgid "Synchronization Provider"
+msgstr "អ្នកផ្ដល់សេវាសមកាលកម្ម"
+
+msgctxt "field:account.statement.origin.suggested.line,name:"
+msgid "Name"
+msgstr "ឈ្មោះ"
+
+msgctxt "field:account.statement.origin.suggested.line,similarity:"
+msgid "Similarity"
+msgstr "ភាពស្រដៀងគ្នា"
+
+msgctxt "model:account.statement.journal.weight,name:"
+msgid "Journal Weight"
+msgstr "ទម្ងន់ទិនានុប្បវត្តិ"
+
+msgctxt "model:account.statement.origin.create_line.start,name:"
+msgid "Create Statement Lines from origins Start View"
+msgstr "ទិដ្ឋភាពចាប់ផ្ដើមបង្កើតបន្ទាត់របាយការណ៍គណនីពីប្រភព"
+
+msgctxt "model:account.statement.origin.multiple.invoices.start,name:"
+msgid "Add Multiple Invoices Start"
+msgstr "ចាប់ផ្ដើមបន្ថែមវិក្កយបត្រច្រើន"
+
+msgctxt "model:account.statement.origin.multiple.move_lines.start,name:"
+msgid "Add Multiple Move Lines Start"
+msgstr "ចាប់ផ្ដើមបន្ថែមបន្ទាត់កំណត់ត្រាគណនេយ្យច្រើន"
+
+msgctxt "model:account.statement.origin.suggested.line,name:"
+msgid "Account Statement Origin Suggested Line"
+msgstr "បន្ទាត់ដែលបានស្នើសម្រាប់ប្រភពរបាយការណ៍គណនី"
+
+msgctxt "model:statement.link.invoice.start,name:"
+msgid "Link Invoice Start"
+msgstr "ចាប់ផ្ដើមភ្ជាប់វិក្កយបត្រ"
+
+msgctxt "selection:account.statement.journal,statement_provider:"
+msgid "Manual Import"
+msgstr "នាំចូលដោយដៃ"
